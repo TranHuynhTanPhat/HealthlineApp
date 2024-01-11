@@ -1,0 +1,1690 @@
+{
+    "vi": {
+        "vi": "Đổi sang tiếng Việt",
+        "en": "Change to Vietnamese"
+    },
+    "en": {
+        "vi": "Đổi sang tiếng Anh",
+        "en": "Change to English"
+    },
+    "skip": {
+        "vi": "Bỏ qua",
+        "en": "Skip"
+    },
+    "next": {
+        "vi": "Kế tiếp",
+        "en": "Next"
+    },
+    "cancel": {
+        "vi": "Huỷ",
+        "en": "Cancel"
+    },
+    "save": {
+        "vi": "Lưu",
+        "en": "Save"
+    },
+    "back": {
+        "vi": "Trở lại",
+        "en": "Back"
+    },
+    "log_in": {
+        "vi": "Đăng nhập",
+        "en": "Log in"
+    },
+    "sign_up": {
+        "vi": "Đăng ký",
+        "en": "Sign up"
+    },
+    "title_signup": {
+        "vi": "Đăng ký tài khoản ngay",
+        "en": "Register an account now"
+    },
+    "content_signup": {
+        "vi": "Chào mừng đến với HealthLine! Đăng ký và bắt đầu sử dụng ứng dụng ngay thôi.",
+        "en": "Welcome to HealthLine! Sign up and start using application now."
+    },
+    "full_name": {
+        "vi": "Họ & tên",
+        "en": "Full name"
+    },
+    "ex_full_name": {
+        "vi": "Vd: Nguyễn Văn A",
+        "en": "Ex. David Beckham"
+    },
+    "birthday": {
+        "vi": "Ngày sinh",
+        "en": "Birthday"
+    },
+    "gender": {
+        "vi": "Giới tính",
+        "en": "Gender"
+    },
+    "male": {
+        "vi": "Nam",
+        "en": "Male"
+    },
+    "female": {
+        "vi": "Nữ",
+        "en": "Female"
+    },
+    "undefine": {
+        "vi": "Không xác định",
+        "en": "Undefine"
+    },
+    "address": {
+        "vi": "Địa chỉ",
+        "en": "Address"
+    },
+    "email": {
+        "vi": "Email",
+        "en": "Email"
+    },
+    "email_or_phone": {
+        "vi": "Email hoặc số điện thoại",
+        "en": "Email or phone number"
+    },
+    "ex_email": {
+        "vi": "example@gmail.com",
+        "en": "example@gmail.com"
+    },
+    "phone": {
+        "vi": "Số điện thoại",
+        "en": "Phone number"
+    },
+    "password": {
+        "vi": "Mật khẩu",
+        "en": "Password"
+    },
+    "change_password": {
+        "vi": "Đổi mật khẩu",
+        "en": "Change password"
+    },
+    "old_password": {
+        "vi": "Mật khẩu cũ",
+        "en": "Old password"
+    },
+    "new_password": {
+        "vi": "Mật khẩu mới",
+        "en": "New password"
+    },
+    "confirm_new_password": {
+        "vi": "Xác thực mật khẩu mới",
+        "en": "Confirm new password"
+    },
+    "relationship": {
+        "vi": "Mối quan hệ",
+        "en": "Relationship"
+    },
+    "confirm_password": {
+        "vi": "Xác thực mật khẩu",
+        "en": "Confirm password"
+    },
+    "i_agree_with": {
+        "vi": "Tôi đồng ý với",
+        "en": "I agree with"
+    },
+    "terms_and_conditions": {
+        "vi": "Điều khoản và Điều kiện",
+        "en": "Terms & Conditions"
+    },
+    "create_account": {
+        "vi": "Tạo tài khoản",
+        "en": "Create account"
+    },
+    "already_have_an_account": {
+        "vi": "Bạn đã có tài khoản?",
+        "en": "Already have an account?"
+    },
+    "forgot_your_password": {
+        "vi": "Quên mật khẩu?",
+        "en": "Forgot your password?"
+    },
+    "new_to_healthline": {
+        "vi": "Bạn mới biết đến HealthLine?",
+        "en": "New to HealthLine?"
+    },
+    "greeting": {
+        "vi": "Xin chào",
+        "en": "Hello"
+    },
+    "content_login": {
+        "vi": "HealthLine rất vui khi gặp lại bạn. Bạn có thể tiếp tục sau khi đăng nhập.",
+        "en": "HealthLine is happy to see you again. You can continue where you left off by logging in."
+    },
+    "please_choose": {
+        "vi": "Vui lòng chọn",
+        "en": "Please choose"
+    },
+    "please_choose_image": {
+        "vi": "Vui lòng chọn ảnh",
+        "en": "Please choose image"
+    },
+    "please_choose_day_of_birth": {
+        "vi": "Vui lòng chọn ngày sinh",
+        "en": "Please choose birthday"
+    },
+    "please_choose_relationship": {
+        "vi": "Vui lòng chọn quan hệ",
+        "en": "Please choose relationship"
+    },
+    "please_enter_email": {
+        "vi": "Vui lòng nhập email",
+        "en": "Please enter email"
+    },
+    "please_enter_phone_number": {
+        "vi": "Vui lòng nhập số điện thoại",
+        "en": "Please enter phone number"
+    },
+    "please_enter_password": {
+        "vi": "Vui lòng nhập mật khẩu",
+        "en": "Please enter password"
+    },
+    "please_enter_head_circumference": {
+        "vi": "Vui lòng nhập số đo vòng đầu",
+        "en": "Please enter head circumference"
+    },
+    "please_enter_temperature": {
+        "vi": "Vui lòng nhập nhiệt độ",
+        "en": "Please enter temperature"
+    },
+    "please_enter_feedback": {
+        "vi": "Vui lòng nhập phản hồi",
+        "en": "Please enter feedback"
+    },
+    "least_8_characters_long": {
+        "vi": "Ít nhất 8 kí tự",
+        "en": "Least 8 characters long"
+    },
+    "least_1_uppercase": {
+        "vi": "Ít nhất 1 chữ hoa",
+        "en": "Least 1 uppercase"
+    },
+    "least_1_lowercase": {
+        "vi": "Ít nhất 1 chữ thường",
+        "en": "Least 1 lowercase"
+    },
+    "least_1_number": {
+        "vi": "Ít nhất 1 chữ số",
+        "en": "Least 1 number"
+    },
+    "least_1_special_character": {
+        "vi": "Ít nhất 1 kí tự đặc biệt",
+        "en": "Least 1 special character"
+    },
+    "please_enter_full_name": {
+        "vi": "Vui lòng nhập đầy đủ họ tên",
+        "en": "Please enter full name"
+    },
+    "please_choose_gender": {
+        "vi": "Vui lòng chọn giới tính",
+        "en": "Please choose gender"
+    },
+    "please_enter_age": {
+        "vi": "Vui lòng nhập tuổi",
+        "en": "Please enter age"
+    },
+    "please_choose_blood_group": {
+        "vi": "Vui lòng chọn nhóm máu",
+        "en": "Please choose blood group"
+    },
+    "please_enter_height": {
+        "vi": "Vui lòng nhập chiều cao",
+        "en": "Please enter height"
+    },
+    "please_enter_weight": {
+        "vi": "Vui lòng nhập cân nặng",
+        "en": "Please enter weight"
+    },
+    "please_enter_heart_rate": {
+        "vi": "Vui lòng nhập nhịp tim",
+        "en": "Please enter heart rate"
+    },
+    "password_must_be_same_as_above": {
+        "vi": "Mật khẩu phải giống ở trên",
+        "en": "Password must be same as above"
+    },
+    "invalid": {
+        "vi": "Không hợp lệ",
+        "en": "Invalid"
+    },
+    "sign_in_with_google": {
+        "vi": "Đăng nhập với Google",
+        "en": "Sign in with Google"
+    },
+    "success_register": {
+        "vi": "Đăng ký thành công",
+        "en": "Register successfully"
+    },
+    "success_login": {
+        "vi": "Đăng nhập thành công",
+        "en": "Login successfully"
+    },
+    "unauthorized": {
+        "vi": "Không thể xác thực",
+        "en": "Unauthorized"
+    },
+    "patient": {
+        "vi": "Bệnh nhân",
+        "en": "Patient"
+    },
+    "doctor": {
+        "vi": "Bác sĩ",
+        "en": "Doctor"
+    },
+    "use_patient_account": {
+        "vi": "Sử dụng tài khoản khám bệnh",
+        "en": "Use patient account"
+    },
+    "setting": {
+        "vi": "Cài đặt",
+        "en": "Setting"
+    },
+    "account_setting": {
+        "vi": "Cài đặt tài khoản",
+        "en": "Account setting"
+    },
+    "application_setting": {
+        "vi": "Cài đặt ứng dụng",
+        "en": "Application setting"
+    },
+    "update_application": {
+        "vi": "Cập nhật ứng dụng",
+        "en": "Update application"
+    },
+    "downloading": {
+        "vi": "Đang tải ...",
+        "en": "Downloading..."
+    },
+    "a_new_patch_is_ready": {
+        "vi": "Bản vá mới đã sẵn sằng",
+        "en": "A new patch is ready"
+    },
+    "restart_app": {
+        "vi": "Khởi động ứng dụng",
+        "en": "Restart app"
+    },
+    "update_available": {
+        "vi": "Bản cập nhật sẵn sàng",
+        "en": "Update available"
+    },
+    "no_update_available": {
+        "vi": "Không có bản cập nhật",
+        "en": "No update available"
+    },
+    "no_patch_installed": {
+        "vi": "Không có bản vá được cài đặt",
+        "en": "No patch installed"
+    },
+    "current_patch_version": {
+        "vi": "Phiên bản hiện tại",
+        "en": "Current patch version"
+    },
+    "cant_connect_to_current_version": {
+        "vi": "Không thể kết nối đến phiên bản hiện tại",
+        "en": "Can't connect to current version"
+    },
+    "edit_contact_info": {
+        "vi": "Chỉnh sửa thông tin liên hệ",
+        "en": "Edit contact info"
+    },
+    "edit": {
+        "vi": "Sửa",
+        "en": "Edit"
+    },
+    "edit_content": {
+        "vi": "Chỉnh sửa nội dung",
+        "en": "Edit content"
+    },
+    "update_now": {
+        "vi": "Cập nhật ngay",
+        "en": "Update now"
+    },
+    "check_for_update": {
+        "vi": "Kiểm tra cập nhật",
+        "en": "Check for update"
+    },
+    "update_profile": {
+        "vi": "Cập nhật hồ sơ",
+        "en": "Update profile"
+    },
+    "update_biography": {
+        "vi": "Cập nhật tiểu sử",
+        "en": "Update biography"
+    },
+    "update_avatar": {
+        "vi": "Cập nhật ảnh đại diện",
+        "en": "Update avatar"
+    },
+    "biography_must_be_at_least_100_words": {
+        "vi": "Tiểu sử phải có ít nhất 100 từ",
+        "en": "Bio must be at least 100 words"
+    },
+    "add_vaccination": {
+        "vi": "Thêm vắc xin",
+        "en": "Add vaccination"
+    },
+    "add_vaccination_record": {
+        "vi": "Thêm hồ sơ vắc xin",
+        "en": "Add vaccination record"
+    },
+    "add_patient_record": {
+        "vi": "Thêm hồ sơ bệnh nhân",
+        "en": "Add patient record"
+    },
+    "update": {
+        "vi": "Cập nhật",
+        "en": "Update"
+    },
+    "delete": {
+        "vi": "Xoá",
+        "en": "Delete"
+    },
+    "delete_record": {
+        "vi": "Xoá hồ sơ",
+        "en": "Delete record"
+    },
+    "delete_successfully": {
+        "vi": "Xoá thành công",
+        "en": "Delete successfully"
+    },
+    "record_not_found": {
+        "vi": "Không tìm thấy hồ sơ",
+        "en": "Record not found"
+    },
+    "successfully": {
+        "vi": "Thành công",
+        "en": "Successfully"
+    },
+    "cant_load_data": {
+        "vi": "Không thể tải dữ liệu",
+        "en": "Can't load data"
+    },
+    "retry": {
+        "vi": "Thử lại",
+        "en": "Retry"
+    },
+    "failure": {
+        "vi": "Thất bại",
+        "en": "Failure"
+    },
+    "i_am_healthline": {
+        "vi": "Tôi là HealthLine",
+        "en": "I'm HealthLine"
+    },
+    "click_again_to_exit": {
+        "vi": "Chạm lại để thoát",
+        "en": "Click again to exit"
+    },
+    "notification": {
+        "vi": "Thông báo",
+        "en": "Notification"
+    },
+    "search_drugs_categories": {
+        "vi": "Tìm kiếm thuốc, thể loại",
+        "en": "Search drugs, categories"
+    },
+    "general_medical": {
+        "vi": "Y tế tổng hợp",
+        "en": "General medical"
+    },
+    "clinic": {
+        "vi": "Phòng khám",
+        "en": "Clinic"
+    },
+    "nurse": {
+        "vi": "Y tá",
+        "en": "Nurse"
+    },
+    "vaccination": {
+        "vi": "Vắc xin",
+        "en": "Vaccination"
+    },
+    "news": {
+        "vi": "Tin tức",
+        "en": "News"
+    },
+    "all": {
+        "vi": "Tất cả",
+        "en": "All"
+    },
+    "general": {
+        "vi": "Chung",
+        "en": "General"
+    },
+    "dentist": {
+        "vi": "Nha sĩ",
+        "en": "Dentist"
+    },
+    "optician": {
+        "vi": "Bác sĩ nhãn khoa",
+        "en": "Optician"
+    },
+    "audiologist": {
+        "vi": "Bác sĩ thính học",
+        "en": "audiologist"
+    },
+    "paediatric": {
+        "vi": "Khoa nhi",
+        "en": "Paediatric"
+    },
+    "herapist": {
+        "vi": "Nhà trị liệu",
+        "en": "Herapist"
+    },
+    "services": {
+        "vi": "Dịch vụ",
+        "en": "Services"
+    },
+    "upcoming_appointments": {
+        "vi": "Cuộc hẹn sắp tới",
+        "en": "Upcoming appointments"
+    },
+    "coming_soon": {
+        "vi": "Sắp hoàn thành",
+        "en": "Coming soon"
+    },
+    "book_appointment_now": {
+        "vi": "Đặt lịch khám ngay",
+        "en": "Book appointment now"
+    },
+    "join_now": {
+        "vi": "Tham gia ngay",
+        "en": "Join now"
+    },
+    "see_all": {
+        "vi": "Xem thêm",
+        "en": "See all"
+    },
+    "top_doctors": {
+        "vi": "Bác sĩ hàng đầu",
+        "en": "Top doctors"
+    },
+    "consult_doctors": {
+        "vi": "Tham khảo ý kiến bác sĩ",
+        "en": "Consult doctors"
+    },
+    "get_expert_advice_form_specialist_doctors": {
+        "vi": "Nhận lời khuyên của các chuyên gia, bác sĩ chuyên khoa.",
+        "en": "Get Expert Advice Form Specialist Doctors"
+    },
+    "home_page": {
+        "vi": "Trang chủ",
+        "en": "Home page"
+    },
+    "schedule": {
+        "vi": "Lịch trình",
+        "en": "Schedule"
+    },
+    "messages": {
+        "vi": "Tin nhắn",
+        "en": "Messages"
+    },
+    "health_info": {
+        "vi": "Thông tin",
+        "en": "Health info"
+    },
+    "patient_records": {
+        "vi": "Hồ sơ bệnh nhân",
+        "en": "Patient records"
+    },
+    "invalid_phone": {
+        "vi": "Số điện thoại không hợp lệ",
+        "en": "Invalid phone"
+    },
+    "invalid_email": {
+        "vi": "Email không hợp lệ",
+        "en": "Invalid email"
+    },
+    "my_appointments": {
+        "vi": "Cuộc hẹn của tôi",
+        "en": "My appointments"
+    },
+    "upcoming": {
+        "vi": "Sắp tới",
+        "en": "Upcoming"
+    },
+    "completed": {
+        "vi": "Hoàn thành",
+        "en": "Completed"
+    },
+    "canceled": {
+        "vi": "Đã huỷ",
+        "en": "Canceled"
+    },
+    "pending": {
+        "vi": "Đang xử lý",
+        "en": "Pending"
+    },
+    "confirmed": {
+        "vi": "Đã xác nhận",
+        "en": "Confirmed"
+    },
+    "confirm": {
+        "vi": "Xác nhận",
+        "en": "Confirm"
+    },
+    "finished": {
+        "vi": "Đã kết thúc",
+        "en": "Finished"
+    },
+    "denied": {
+        "vi": "Đã bị từ chối",
+        "en": "Denied"
+    },
+    "deny": {
+        "vi": "Từ chối",
+        "en": "Deny"
+    },
+    "detail": {
+        "vi": "Chi tiết",
+        "en": "Detail"
+    },
+    "dr": {
+        "vi": "Bs",
+        "en": "Dr"
+    },
+    "allergist": {
+        "vi": "Bác sĩ chuyên khoa dị ứng",
+        "en": "Allergist"
+    },
+    "andrologist": {
+        "vi": "Bác sĩ nam khoa",
+        "en": "Andrologist"
+    },
+    "anesthesiologist": {
+        "vi": "Bác sĩ gây mê",
+        "en": "Anesthesiologist"
+    },
+    "cardiologist": {
+        "vi": "Bác sĩ tim mạch",
+        "en": "Cardiologist"
+    },
+    "dermatologist": {
+        "vi": "Bác sĩ da liễu",
+        "en": "Dermatologist"
+    },
+    "endocrinologist": {
+        "vi": "Bác sĩ nội tiết",
+        "en": "Endocrinologist"
+    },
+    "epidemiologist": {
+        "vi": "Bác sĩ dịch tễ học",
+        "en": "Epidemiologist"
+    },
+    "gastroenterologist": {
+        "vi": "Bác sĩ chuyên khoa tiêu hóa",
+        "en": "Gastroenterologist"
+    },
+    "gynaecologist": {
+        "vi": "Bác sĩ phụ khoa",
+        "en": "Gynaecologist"
+    },
+    "haematologist": {
+        "vi": "Bác sĩ huyết học",
+        "en": "Haematologist"
+    },
+    "hepatologist": {
+        "vi": "Bác sĩ chuyên khoa gan",
+        "en": "Hepatologist"
+    },
+    "immunologist": {
+        "vi": "Bác sĩ chuyên khoa miễn dịch",
+        "en": "Immunologist"
+    },
+    "nephrologist": {
+        "vi": "Bác sĩ chuyên khoa thận",
+        "en": "Nephrologist"
+    },
+    "neurologist": {
+        "vi": "Bác sĩ chuyên khoa thần kinh",
+        "en": "Neurologist"
+    },
+    "oncologist": {
+        "vi": "Bác sĩ chuyên khoa ung thư",
+        "en": "Oncologist"
+    },
+    "ophthalmologist": {
+        "vi": "Bác sĩ mắt",
+        "en": "Ophthalmologist"
+    },
+    "orthopedist": {
+        "vi": "Bác sĩ ngoại chỉnh hình",
+        "en": "Orthopedist"
+    },
+    "otorhinolaryngologist": {
+        "vi": "Bác sĩ tai mũi họng",
+        "en": "Otorhinolaryngologist"
+    },
+    "otolaryngologist": {
+        "vi": "Bác sĩ tai mũi họng",
+        "en": "Otolaryngologist"
+    },
+    "pathologist": {
+        "vi": "Bác sĩ bệnh lý học",
+        "en": "Pathologist"
+    },
+    "proctologist": {
+        "vi": "Bác sĩ chuyên khoa hậu môn – trực tràng",
+        "en": "Proctologist"
+    },
+    "psychiatrist": {
+        "vi": "Bác sĩ chuyên khoa tâm thần",
+        "en": "Psychiatrist"
+    },
+    "radiologist": {
+        "vi": "Bác sĩ X-quang",
+        "en": "Radiologist"
+    },
+    "rheumatologist": {
+        "vi": "Bác sĩ chuyên khoa bệnh thấp",
+        "en": "Rheumatologist"
+    },
+    "traumatologist": {
+        "vi": "Bác sĩ chuyên khoa chấn thương",
+        "en": "Traumatologist"
+    },
+    "obstetrician": {
+        "vi": "Bác sĩ sản khoa",
+        "en": "Obstetrician"
+    },
+    "paeditrician": {
+        "vi": "Bác sĩ nhi khoa",
+        "en": "Paeditrician"
+    },
+    "heart_rate": {
+        "vi": "Nhịp tim",
+        "en": "Heart rate"
+    },
+    "blood_group": {
+        "vi": "Nhóm máu",
+        "en": "Blood group"
+    },
+    "medical_record": {
+        "vi": "Hồ sơ bệnh án",
+        "en": "Medical record"
+    },
+    "revenue": {
+        "vi": "Thu nhập",
+        "en": "Revenue"
+    },
+    "reported": {
+        "vi": "Bị tố cáo",
+        "en": "Reported"
+    },
+    "images": {
+        "vi": "Hình ảnh",
+        "en": "Images"
+    },
+    "file": {
+        "vi": "Tệp",
+        "en": "File"
+    },
+    "statistics": {
+        "vi": "Thống kê",
+        "en": "Statistics"
+    },
+    "your_shift": {
+        "vi": "Ca làm việc của bạn",
+        "en": "Your shift"
+    },
+    "today": {
+        "vi": "Hôm nay",
+        "en": "Today"
+    },
+    "next_patient_profile": {
+        "vi": "Hồ sơ bệnh nhân tiếp theo",
+        "en": "Next patient's profile"
+    },
+    "appointment": {
+        "vi": "Cuộc hẹn",
+        "en": "Appointment"
+    },
+    "appointments": {
+        "vi": "cuộc hẹn",
+        "en": "appointments"
+    },
+    "available": {
+        "vi": "Có sẵn",
+        "en": "Available"
+    },
+    "empty": {
+        "vi": "Trống",
+        "en": "Empty"
+    },
+    "booked": {
+        "vi": "Đã được đặt",
+        "en": "Booked"
+    },
+    "loading": {
+        "vi": "Đang tải",
+        "en": "Loading"
+    },
+    "types": {
+        "vi": "Loại",
+        "en": "Types"
+    },
+    "prescription": {
+        "vi": "Đơn thuốc",
+        "en": "Prescription"
+    },
+    "prescriptions": {
+        "vi": "Đơn",
+        "en": "Prescriptions"
+    },
+    "health_information": {
+        "vi": "Thông tin sức khoẻ",
+        "en": "Health information"
+    },
+    "records": {
+        "vi": "Bản",
+        "en": "Records"
+    },
+    "head_circumference": {
+        "vi": "Chỉ số vòng đầu",
+        "en": "Head circumference"
+    },
+    "children": {
+        "vi": "Con",
+        "en": "Children"
+    },
+    "child": {
+        "vi": "Con",
+        "en": "Child"
+    },
+    "sibling": {
+        "vi": "Anh/Chị",
+        "en": "Sibling"
+    },
+    "parent": {
+        "vi": "Ba/mẹ",
+        "en": "Parent"
+    },
+    "grandparent": {
+        "vi": "Ông/bà",
+        "en": "Grandparent"
+    },
+    "privacy_policy": {
+        "vi": "Chính sách bảo mật",
+        "en": "Privacy policy"
+    },
+    "supports": {
+        "vi": "Hỗ trợ",
+        "en": "Supports"
+    },
+    "overview": {
+        "vi": "Tổng quan",
+        "en": "Overview"
+    },
+    "helps": {
+        "vi": "Trợ giúp",
+        "en": "Helps"
+    },
+    "must_be_greater_than_or_equal_to": {
+        "vi": "phải lớn hơn hoặc bằng ",
+        "en": "must be greater than or equal to"
+    },
+    "amount_to_top_up": {
+        "vi": "Số tiền cần nạp",
+        "en": "Amount to top up"
+    },
+    "amount_to_withdraw": {
+        "vi": "Số tiền cần rút",
+        "en": "Amount to withdraw"
+    },
+    "recharge": {
+        "vi": "Nạp tiền",
+        "en": "Recharge"
+    },
+    "withdraw": {
+        "vi": "Rút tiền",
+        "en": "Withdraw"
+    },
+    "wallet": {
+        "vi": "Ví",
+        "en": "Wallet"
+    },
+    "recharge_withdraw": {
+        "vi": "Nạp/rút tiền",
+        "en": "Recharge/withdraw"
+    },
+    "transfer": {
+        "vi": "Chuyển khoản",
+        "en": "Transfer"
+    },
+    "bank_card": {
+        "vi": "Thẻ ngân hàng",
+        "en": "Bank card"
+    },
+    "service_card": {
+        "vi": "Thẻ dịch vụ",
+        "en": "Service card"
+    },
+    "transfer_money_through_banks": {
+        "vi": "Chuyển tiền qua ngân hàng",
+        "en": "Transfer money through banks"
+    },
+    "transfer_money_via_visa_master_or_bank_card": {
+        "vi": "Chuyển tiền qua thẻ Visa, Master hoặc thẻ ngân hàng",
+        "en": "Transfer money via visa, master or bank card"
+    },
+    "recharge_via_momo_application": {
+        "vi": "Nạp tiền qua ứng dụng Momo",
+        "en": "Recharge via Momo application"
+    },
+    "age": {
+        "vi": "Tuổi",
+        "en": "Age"
+    },
+    "height": {
+        "vi": "Chiều cao",
+        "en": "Height"
+    },
+    "weight": {
+        "vi": "Cân nặng",
+        "en": "Weight"
+    },
+    "temperature": {
+        "vi": "Nhiệt độ",
+        "en": "Temperature"
+    },
+    "invalid_age": {
+        "vi": "Tuổi không hợp lệ",
+        "en": "Invalid age"
+    },
+    "invalid_blood_group": {
+        "vi": "Nhóm máu không hợp lệ",
+        "en": "Invalid blood group"
+    },
+    "invalid_height": {
+        "vi": "Chiều cao không hợp lệ",
+        "en": "Invalid height"
+    },
+    "invalid_weight": {
+        "vi": "Cân nặng không hợp lệ",
+        "en": "Invalid weight"
+    },
+    "invalid_heart_rate": {
+        "vi": "Nhịp tim không hợp lệ",
+        "en": "Invalid heart rate"
+    },
+    "invalid_head_circumference": {
+        "vi": "Số đo vòng đầu không hợp lệ",
+        "en": "Invalid head circumference"
+    },
+    "invalid_temperature": {
+        "vi": "Nhiệt độ không hợp lệ",
+        "en": "Invalid temperature"
+    },
+    "update_information": {
+        "vi": "Cập nhật thông tin",
+        "en": "Update information"
+    },
+    "add_member": {
+        "vi": "Thêm thành viên",
+        "en": "Add member"
+    },
+    "log_out": {
+        "vi": "Đăng xuất",
+        "en": "Log out"
+    },
+    "list_of_doctors": {
+        "vi": "Danh sách bác sĩ",
+        "en": "List of Doctors"
+    },
+    "tuberculosis": {
+        "vi": "Lao",
+        "en": "Tuberculosis"
+    },
+    "hepatitis_b": {
+        "vi": "Viêm gan B",
+        "en": "Hepatitis B"
+    },
+    "diphtheria_tetanus_pertussis": {
+        "vi": "Bạch hầu, ho gà, uốn ván",
+        "en": "Diphtheria, tetanus, pertussis"
+    },
+    "poliomyelitis": {
+        "vi": "Bại liệt",
+        "en": "Poliomyelitis"
+    },
+    "hib_diseases": {
+        "vi": "Viêm phổi, viêm màng não mủ do Hib",
+        "en": "Hib diseases"
+    },
+    "rotavirus": {
+        "vi": "Tiêu chảy do Rota Virus",
+        "en": "Rotavirus"
+    },
+    "pneumococcal_disease": {
+        "vi": "Viêm phổi, viêm màng não, viêm tai giữa do phế cầu khuẩn",
+        "en": "Pneumococcal disease"
+    },
+    "meningococcal_disease_caused_by_serogroups_b_and_c": {
+        "vi": "Viêm màng não, nhiễm khuẩn huyết, viêm phổi do não mô cầu khuẩn B,C",
+        "en": "Meningococcal disease caused by serogroups B and C"
+    },
+    "influenza": {
+        "vi": "Cúm",
+        "en": "Influenza"
+    },
+    "measles": {
+        "vi": "Sởi",
+        "en": "measles"
+    },
+    "meningococcal_acwy": {
+        "vi": "Viêm màng não, nhiễm khuẩn huyết, viêm phổi do não mô cầu khuẩn A,C,W,Y",
+        "en": "Meningococcal ACWY"
+    },
+    "japanese_encephalitis": {
+        "vi": "Vắc xin phòng viêm não Nhật Bản sống giảm độc lực tái tổ hợp",
+        "en": "Japanese encephalitis"
+    },
+    "measles_mumps_rubella": {
+        "vi": "Sởi, Quai bị, Rubella",
+        "en": "Measles, Mumps, Rubella"
+    },
+    "varicella": {
+        "vi": "Thuỷ đậu",
+        "en": "Varicella"
+    },
+    "tetanus": {
+        "vi": "Uốn ván",
+        "en": "Tetanus"
+    },
+    "hepatitis_a": {
+        "vi": "Viêm gan A",
+        "en": "Hepatitis A"
+    },
+    "hepatitis_a_and_b": {
+        "vi": "Viêm gan A và B",
+        "en": "Hepatitis A and B"
+    },
+    "typhoid": {
+        "vi": "Thương hàn",
+        "en": "Typhoid"
+    },
+    "cholera": {
+        "vi": "Bệnh tả",
+        "en": "Cholera"
+    },
+    "hpv": {
+        "vi": "Bệnh lây lan qua đường tình dục và ung thư cổ tử cung do HPV",
+        "en": "HPV"
+    },
+    "rabies": {
+        "vi": "Dại",
+        "en": "Rabies"
+    },
+    "yellow_fever": {
+        "vi": "Sốt vàng",
+        "en": "Yellow fever"
+    },
+    "over_fine_ages": {
+        "vi": "Trên 9 tuổi",
+        "en": "Over 9 ages"
+    },
+    "under_fine_ages": {
+        "vi": "Dưới 9 tuổi",
+        "en": "Under 9 ages"
+    },
+    "notice": {
+        "vi": "Chú ý",
+        "en": "Notice"
+    },
+    "a_booster_dose_every_year": {
+        "vi": "Tiêm nhắc lại mỗi năm một lần",
+        "en": "A booster dose every year"
+    },
+    "dose": {
+        "vi": "Mũi",
+        "en": "Dose"
+    },
+    "doses": {
+        "vi": "Số mũi",
+        "en": "Doses"
+    },
+    "time_dose": {
+        "vi": "Thời gian tiêm",
+        "en": "Dose time"
+    },
+    "from_nine_years_old": {
+        "vi": "Từ 9 tuổi",
+        "en": "From nine years old"
+    },
+    "days_from_last_dose": {
+        "vi": "Cách mũi gần nhất",
+        "en": "From last dose"
+    },
+    "day_of_last_dose": {
+        "vi": "Thời gian tiêm mũi cuối",
+        "en": "Day of last dose"
+    },
+    "women_should_receive_the_vaccine_at_least_three_month_before_getting_pregnant": {
+        "vi": "Phụ nữ hoàn tất lịch tiêm trước khi mang thai tối thiểu 3 tháng",
+        "en": "Women should receive the vaccine at least 3 month before getting pregnant"
+    },
+    "minimum_interval_one_month": {
+        "vi": "Tối thiểu 1 tháng",
+        "en": "Minimum interval one month"
+    },
+    "women_in_fertility_age": {
+        "vi": "Phụ nữ ở độ tuổi sinh sản",
+        "en": "Women in fertility age"
+    },
+    "asap_when_being_pregnant": {
+        "vi": "Càng sớm càng tốt khi mang thai",
+        "en": "Asap when being prepnant"
+    },
+    "one_month": {
+        "vi": "Một tháng",
+        "en": "One month"
+    },
+    "at_least_six_months_or_can_be_received_in_the_next_pregnancy": {
+        "vi": "Cách liều 2 tối thiểu 6 tháng hoặc trong thời kỳ có thai sau",
+        "en": "At least 6 months after the 2nd dose or can be received in the next pregnancy"
+    },
+    "when_in_need": {
+        "vi": "Khi cần",
+        "en": "When in need"
+    },
+    "six_to_twelve_months": {
+        "vi": "Từ 6 đến 12 tháng",
+        "en": "Six to twelve months"
+    },
+    "a_booster_every_10_years": {
+        "vi": "Tiêm bổ sung mỗi 10 năm",
+        "en": "A booster every 10 years"
+    },
+    "never_injected_yet": {
+        "vi": "Chưa từng tiêm trước đây",
+        "en": "Never injected yet"
+    },
+    "one_year": {
+        "vi": "1 năm",
+        "en": "1 year"
+    },
+    "already_injected": {
+        "vi": "Đã từng tiêm",
+        "en": "Already injected"
+    },
+    "from_nine_to_fifty_five_years_old": {
+        "vi": "Từ 9 đến 55 tuổi",
+        "en": "From 9 to 55 years old"
+    },
+    "from_nine_to_fourty_five_years_old": {
+        "vi": "Từ 9 đến 45 tuổi",
+        "en": "From 9 to 45 years old"
+    },
+    "minimum_interval_two_months": {
+        "vi": "Tối thiểu 2 tháng",
+        "en": "Minimum interval 2 months"
+    },
+    "one_month_after_1st_dose": {
+        "vi": "1 tháng sau mũi 1",
+        "en": "1 month after 1st dose"
+    },
+    "six_months_after_1st_dose": {
+        "vi": "6 tháng sau mũi 1",
+        "en": "6 months after 1st dose"
+    },
+    "from_nine_to_fifteen_years_old": {
+        "vi": "Từ 9 đến 15 tuổi",
+        "en": "From 9 to 15 years old"
+    },
+    "minimum_interval_six_to_twelve_months": {
+        "vi": "Tối thiểu 6 đến 12 tháng",
+        "en": "Minimun interval 6 to 12 months"
+    },
+    "a_booster_dose_every_five_years": {
+        "vi": "Một mũi tăng cường mỗi 5 năm",
+        "en": "A booster dose every 5 years"
+    },
+    "from_sixteen_years_old": {
+        "vi": "Từ 16 tuổi",
+        "en": "From 16 years old"
+    },
+    "minimum_interval_five_month": {
+        "vi": "Từ tối thiểu 5 tháng",
+        "en": "Minimum interval five months"
+    },
+    "minimum_interval_one_to_two_months_after_1st_dose": {
+        "vi": "Từ tối thiểu 1 đến 2 tháng sau mũi 1",
+        "en": "Minimum interval 1 to 2 months after 1st dose"
+    },
+    "minimum_interval_six_months_after_1st_dose": {
+        "vi": "Từ tối thiểu 6 tháng sau mũi 1",
+        "en": "Minimum interval 6 months after 1st dose"
+    },
+    "a_booster_when_needed": {
+        "vi": "Tiêm 1 mũi bổ sung khi cần",
+        "en": "A booster when needed"
+    },
+    "minimum_interval_two_weeks": {
+        "vi": "Từ tối thiểu 2 tuần",
+        "en": "Minimum interval two weeks"
+    },
+    "a_booster_dose_every_three_years": {
+        "vi": "Tiêm 1 mũi bổ sung mỗi 3 năm",
+        "en": "A booster every three years"
+    },
+    "three_dose_series_depending_on_indication": {
+        "vi": "Phác đồ dự phòng cho những đối tượng nguy cơ cao gồm 3 liều",
+        "en": "3 dose series depending on indication"
+    },
+    "single_dose_recommended_to_person_traveling_to_or_living_in_areas_at_risk_for_yellow_fever_virus": {
+        "vi": "Tiêm 1 liều khi đi du lịch đến những vùng có nguy cơ cao",
+        "en": "Single dose recommended to person traveling to or living in areas at risk for yellow fever virus"
+    },
+    "twelve_to_eighteen_months_old": {
+        "vi": "12 đến 18 tháng tuổi",
+        "en": "12 to 18 months old"
+    },
+    "two_to_nine_years_old": {
+        "vi": "2 đến 9 tuổi",
+        "en": "2 to 9 years old"
+    },
+    "nine_months_to_nine_years_old": {
+        "vi": "9 tháng đến 9 năm tuổi",
+        "en": "9 months to 9 years old"
+    },
+    "minimum_interval_three_months": {
+        "vi": "Từ tối thiểu 3 tháng",
+        "en": "Minimum interval three months"
+    },
+    "minimum_interval_six_months": {
+        "vi": "Từ tối thiểu 3 tháng",
+        "en": "Minimum interval three months"
+    },
+    "new_born": {
+        "vi": "Sơ sinh",
+        "en": "New born"
+    },
+    "two_months_old": {
+        "vi": "2 tháng tuổi",
+        "en": "2 months old"
+    },
+    "three_months_old": {
+        "vi": "3 tháng tuổi",
+        "en": "3 months old"
+    },
+    "four_months_old": {
+        "vi": "4 tháng tuổi",
+        "en": "4 months old"
+    },
+    "eighteen_months_old": {
+        "vi": "18 tháng tuổi",
+        "en": "18 months old"
+    },
+    "fourteen_months_old": {
+        "vi": "14 tháng tuổi",
+        "en": "14 months old"
+    },
+    "five_to_six_years_old": {
+        "vi": "5 đến 6 tuổi",
+        "en": "5 to six years old"
+    },
+    "two_to_six_months_old": {
+        "vi": "2 đến 6 tháng",
+        "en": "2 to six months old"
+    },
+    "ten_to_elevent_months_old": {
+        "vi": "10 đến 11 tháng tuổi",
+        "en": "10 to 11 months old"
+    },
+    "how_many_doses_have_you_received": {
+        "vi": "Số mũi bạn đã tiêm?",
+        "en": "How many doses have you received?"
+    },
+    "profile": {
+        "vi": "Hồ sơ",
+        "en": "Profile"
+    },
+    "contact": {
+        "vi": "Liên hệ",
+        "en": "Contact"
+    },
+    "security": {
+        "vi": "Bảo mật",
+        "en": "Security"
+    },
+    "user_not_found": {
+        "vi": "Không tìm thấy tài khoản",
+        "en": "User not found"
+    },
+    "doctor_not_found": {
+        "vi": "Không tìm thấy bác sĩ",
+        "en": "Doctor not found"
+    },
+    "feedbacks": {
+        "vi": "Nhận xét",
+        "en": "Feedbacks"
+    },
+    "feedback": {
+        "vi": "Đánh giá",
+        "en": "Feedback"
+    },
+    "feedback_successfully": {
+        "vi": "Đánh giá thành công",
+        "en": "Feedback successfully"
+    },
+    "working_time": {
+        "vi": "Thời gian làm việc",
+        "en": "Working time"
+    },
+    "biography": {
+        "vi": "Tiểu sử",
+        "en": "Biography"
+    },
+    "avatar": {
+        "vi": "Ảnh đại diện",
+        "en": "Avatar"
+    },
+    "vaccination_record": {
+        "vi": "Hồ sơ vắc xin",
+        "en": "Vaccination record"
+    },
+    "update_health_stat": {
+        "vi": "Cập nhật chỉ sức khoẻ",
+        "en": "Update health stat"
+    },
+    "update_fixed_schedule": {
+        "vi": "Cập nhật lịch cố định",
+        "en": "Update fixed schedule"
+    },
+    "update_schedule_on": {
+        "vi": "Cập nhật lịch ngày",
+        "en": "Update schedule on"
+    },
+    "login_to_doctor_account_failed": {
+        "vi": "Đăng nhập vào tài khoản bác sĩ thất bại",
+        "en": "Login to doctor account failed"
+    },
+    "login_to_patient_account_failed": {
+        "vi": "Đăng nhập vào tài khoản người dùng thất bại",
+        "en": "Login to patient account failed"
+    },
+    "cant_open": {
+        "vi": "Không thể mở",
+        "en": "Can't open"
+    },
+    "cant_download": {
+        "vi": "Không thể tải",
+        "en": "Can't download"
+    },
+    "day": {
+        "vi": "Ngày",
+        "en": "Day"
+    },
+    "continue": {
+        "vi": "Tiếp tục",
+        "en": "Continue"
+    },
+    "upload_your_file": {
+        "vi": "Tải tập tin của bạn lên",
+        "en": "Upload your file"
+    },
+    "browse_and_choose_the_file_you_want_to_upload": {
+        "vi": "Duyệt và chọn tập tin bạn muốn tải lên",
+        "en": "Browse and choose the file you want to upload"
+    },
+    "max_file_size": {
+        "vi": "Kích thước tệp tối đa",
+        "en": "Max file size"
+    },
+    "choose_file": {
+        "vi": "Chọn tệp",
+        "en": "Choose file"
+    },
+    "folder": {
+        "vi": "Thư mục",
+        "en": "Folder"
+    },
+    "default": {
+        "vi": "Mặc định",
+        "en": "Default"
+    },
+    "enter_folder_name_or_default": {
+        "vi": "Nhập tên thư mục hoặc để mặc định",
+        "en": "Enter folder name or default"
+    },
+    "upload_file": {
+        "vi": "Tải tệp lên",
+        "en": "Upload file"
+    },
+    "open": {
+        "vi": "Mở",
+        "en": "Open"
+    },
+    "new_update": {
+        "vi": "Bản cập nhật mới",
+        "en": "New update"
+    },
+    "items": {
+        "vi": "mục",
+        "en": "items"
+    },
+    "cant_delete": {
+        "vi": "Không thể xoá",
+        "en": "Can't delete"
+    },
+    "your_question": {
+        "vi": "Câu hỏi của bạn",
+        "en": "Your question"
+    },
+    "whats_the_problem_with_you": {
+        "vi": "Có vấn đề gì với bạn vậy?",
+        "en": "What's the problem with you?"
+    },
+    "attach": {
+        "vi": "Đính kèm",
+        "en": "Attach"
+    },
+    "files": {
+        "vi": "tệp",
+        "en": "files"
+    },
+    "Post": {
+        "vi": "Đăng",
+        "en": "Post"
+    },
+    "forum": {
+        "vi": "Diễn đàn",
+        "en": "Forum"
+    },
+    "like": {
+        "vi": "Thích",
+        "en": "Like"
+    },
+    "liked": {
+        "vi": "lượt thích",
+        "en": "liked"
+    },
+    "comment": {
+        "vi": "Bình luận",
+        "en": "Comment"
+    },
+    "write_a_comment": {
+        "vi": "Viết bình luận...",
+        "en": "Write a comment..."
+    },
+    "reply": {
+        "vi": "Trả lời",
+        "en": "Reply"
+    },
+    "search": {
+        "vi": "Tìm kiếm",
+        "en": "Search"
+    },
+    "post": {
+        "vi": "Đăng",
+        "en": "Post"
+    },
+    "my_clinic": {
+        "vi": "Phòng khám của tôi",
+        "en": "My clinic"
+    },
+    "start": {
+        "vi": "Bắt đầu",
+        "en": "Start"
+    },
+    "end": {
+        "vi": "Kết thúc",
+        "en": "End"
+    },
+    "ob_title_1": {
+        "vi": "Các chuyên gia và phòng khám tốt nhất",
+        "en": "Best specialists and clinics"
+    },
+    "ob_title_2": {
+        "vi": "Giải đáp mọi thắc mắc về sức khỏe",
+        "en": "Answer all health questions"
+    },
+    "ob_title_3": {
+        "vi": "Đặt lịch hẹn khám bệnh trực tuyến dễ dàng",
+        "en": "Book your medical appointment online easily"
+    },
+    "ob_title_4": {
+        "vi": "Cung cấp các dịch vụ sức khoẻ",
+        "en": "Provide health services"
+    },
+    "ob_title_5": {
+        "vi": "Hạn chế tiếp xúc trực tiếp",
+        "en": "Limit direct contact"
+    },
+    "ob_title_6": {
+        "vi": "Bảo mật thông tin",
+        "en": "Information security"
+    },
+    "ob_description_1": {
+        "vi": "Các bác sĩ trên khắp Việt Nam luôn sẵn sàng tư vấn y tế cho bạn.",
+        "en": "Doctors from all over Vietnam are always ready to provide medical advice for you."
+    },
+    "ob_description_2": {
+        "vi": "Bạn có thể nhận được câu trả lời cho tất cả các câu hỏi liên quan đến sức khỏe của mình thông qua các diễn đàn hoặc tư vấn trực tiếp với bác sĩ.",
+        "en": "You can get answers to all your health-related questions through forums or by directly consulting with a doctor."
+    },
+    "ob_description_3": {
+        "vi": "Chọn bác sĩ và đặt lịch hẹn thông qua ứng dụng của chúng tôi.",
+        "en": "Select the doctor and make appointment through our app."
+    },
+    "ob_description_4": {
+        "vi": "Chúng tôi cung cấp một loạt các dịch vụ liên quan đến sức khỏe với sự cộng tác của các bác sĩ.",
+        "en": "We provide a wide range of health-related services with the collaboration of doctors."
+    },
+    "ob_description_5": {
+        "vi": "Điều này giúp giảm nguy cơ lây truyền bệnh ở những nơi đông người như bệnh viện.",
+        "en": "This helps reduce the risk of disease transmission in crowded places like hospitals."
+    },
+    "ob_description_6": {
+        "vi": "Thông tin cá nhân và sức khỏe của bạn sẽ được giữ bí mật cao.",
+        "en": "Your personal and health information will be kept highly confidential."
+    },
+    "tags": {
+        "vi": "Thẻ",
+        "en": "Tags"
+    },
+    "remember": {
+        "vi": "Ghi nhớ đăng nhập",
+        "en": "Remember"
+    },
+    "share_experiences_and_get_advice_from_healthLines_community": {
+        "vi": "Chia sẻ kinh nghiệm và nhận lời khuyên từ cộng đồng HealthLine",
+        "en": "Share experiences and get advice from HealthLine's community"
+    },
+    "search_doctors": {
+        "vi": "Tìm kiếm bác sĩ",
+        "en": "Search doctors"
+    },
+    "choose_time": {
+        "vi": "Chọn thời gian",
+        "en": "Choose time"
+    },
+    "momo_e_wallet": {
+        "vi": "Ví điện tử Momo",
+        "en": "Momo e-wallet"
+    },
+    "invoice": {
+        "vi": "Biên lai",
+        "en": "Invoice"
+    },
+    "time": {
+        "vi": "Thời gian",
+        "en": "Time"
+    },
+    "invoice_code": {
+        "vi": "Mã hoá đơn",
+        "en": "Invoice code"
+    },
+    "created_at": {
+        "vi": "Ngày tạo",
+        "en": "Created at"
+    },
+    "total": {
+        "vi": "Tổng cộng",
+        "en": "Total"
+    },
+    "payment": {
+        "vi": "Thanh toán",
+        "en": "Payment"
+    },
+    "register_an_account_according_to_the_steps": {
+        "vi": "Đăng ký tài khoản theo các bước",
+        "en": "Register an account according to the steps"
+    },
+    "step": {
+        "vi": "Bước",
+        "en": "Step"
+    },
+    "hour_ago": {
+        "vi": "giờ trước",
+        "en": "hour ago"
+    },
+    "hours_ago": {
+        "vi": "giờ trước",
+        "en": "hours ago"
+    },
+    "minute_ago": {
+        "vi": "phút trước",
+        "en": "minute ago"
+    },
+    "minutes_ago": {
+        "vi": "phút trước",
+        "en": "minutes ago"
+    },
+    "day_ago": {
+        "vi": "ngày trước",
+        "en": "day ago"
+    },
+    "days_ago": {
+        "vi": "ngày trước",
+        "en": "days ago"
+    },
+    "month_ago": {
+        "vi": "tháng trước",
+        "en": "month ago"
+    },
+    "months_ago": {
+        "vi": "tháng trước",
+        "en": "months ago"
+    },
+    "year_ago": {
+        "vi": "năm trước",
+        "en": "years ago"
+    },
+    "years_ago": {
+        "vi": "năm trước",
+        "en": "years ago"
+    },
+    "phone_number_has_been_registered": {
+        "vi": "Số điện thoại đã được đăng ký",
+        "en": "Phone number has been registered"
+    },
+    "full_name_must_be_longer_than_or_equal_to_2_characters": {
+        "vi": "Họ và tên phải nhiều hơn 2 từ",
+        "en": "Full name must be longer than or equal to 2 characters"
+    },
+    "failed_to_update_avatar": {
+        "vi": "Cập nhật ảnh đại diện thất bại",
+        "en": "Failed to update avatar"
+    },
+    "filters": {
+        "vi": "Bộ lọc",
+        "en": "Filters"
+    },
+    "minute": {
+        "vi": "Phút",
+        "en": "Minute"
+    },
+    "post_not_found": {
+        "vi": "Không tìm thấy bài viết",
+        "en": "Post not found"
+    },
+    "you": {
+        "vi": "Bạn",
+        "en": "You"
+    },
+    "healthline_wallet": {
+        "vi": "Ví Healthline",
+        "en": "Healthline wallet"
+    },
+    "appointment_information": {
+        "vi": "Thông tin cuộc hẹn",
+        "en": "Appointment information"
+    },
+    "you_have_not_enough_money": {
+        "vi": "Bạn không có đủ tiền",
+        "en": "You have not enough money"
+    },
+    "send_otp": {
+        "vi": "Gửi OTP",
+        "en": "Send OTP"
+    },
+    "password_incorrect": {
+        "vi": "Mật khẩu không chính xác",
+        "en": "Password incorrect"
+    },
+    "can_not_denied_because_status_is_not_pending": {
+        "vi": "Không thể từ chối vì không phải trạng thái đang xử lý",
+        "en": "Can't denied because status is not pending"
+    },
+    "medical_declaration": {
+        "vi": "Tờ khai y tế",
+        "en": "Medical declaration"
+    },
+    "personal_information_of_the_declarant": {
+        "vi": "Thông tin cá nhân của người khai báo",
+        "en": "Personal information of the declarant"
+    },
+    "signs_of_the_disease_appeared_recently": {
+        "vi": "Dấu hiệu bệnh xuất hiện gần đây",
+        "en": "Signs of the disease appeared recently"
+    },
+    "medical_history": {
+        "vi": "Tiền sử bệnh",
+        "en": "Medical history"
+    },
+    "please_tell_us_about_your_medical_history": {
+        "vi": "Vui lòng cho chúng tôi biết về tiền sử, bệnh sử của bạn",
+        "en": "Please tell us about your medical history"
+    },
+    "please_tell_us_about_your_current_health_condition": {
+        "vi": "Vui lòng cho chúng tôi biết về tình trạng sức khoẻ hiện tại của bạn",
+        "en": "Please tell us about your current health condition"
+    },
+    "commit_medical_declaration": {
+        "vi": "Tôi cam kết thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp thông tin sai có thể dẫn đến hậu quả nghiêm trọng. Nếu sai tôi hoàn toàn chịu trách nhiệm trước pháp luật.",
+        "en": "I commit that the above information is true. I understand that providing false information can lead to serious consequences. If I am wrong, I am fully responsible before the law."
+    },
+    "share_information": {
+        "vi": "Chia sẻ thông tin",
+        "en": "Share information"
+    },
+    "symptoms": {
+        "vi": "Triệu chứng",
+        "en": "Symptoms"
+    },
+    "bug_report": {
+        "vi": "Báo cáo lỗi",
+        "en": "Bug report"
+    },
+    "send": {
+        "vi": "Gửi",
+        "en": "Send"
+    },
+    "special_characters": {
+        "vi": "Kí tự đặc biệt",
+        "en": "Special character"
+    },
+    "deletion_of_this_medical_record_is_not_allowed": {
+        "vi": "Không thể xoá hồ sơ",
+        "en": "Deletion of this medical record is not allowed"
+    },
+    "email_not_found": {
+        "vi": "Email không tồn tại",
+        "en": "Email not found"
+    },
+    "email_has_been_registered": {
+        "vi": "Email đã được đăng ký",
+        "en": "Email has been registered"
+    }
+}
