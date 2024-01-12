@@ -56,11 +56,11 @@
 				<string>Editor</string>
 				<key>CFBundleURLName</key>
 				<!-- You can find it on /ios/project.pbxproj - 'PRODUCT_BUNDLE_IDENTIFIER' -->
-				<string>[Your project PRODUCT_BUNDLE_IDENTIFIER value]</string>
+				<string>com.example.healthline</string>
 				<key>CFBundleURLSchemes</key>
 				<array>
 					<!-- Your app title -->
-					<string>example</string>
+					<string>Healthline</string>
 				</array>
 			</dict>
 		</array>
