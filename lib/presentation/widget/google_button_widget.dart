@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../util/translate.dart';
 import '../resources/export.dart';
-import '../resources/images.dart';
 
 class GoogleButtonWidget extends StatelessWidget {
   const GoogleButtonWidget({

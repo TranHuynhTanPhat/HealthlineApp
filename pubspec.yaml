@@ -77,14 +77,14 @@ dependencies:
   # infinite_scroll_pagination: 4.0.0
   # socket_io_client: 2.0.3+1
   firebase_core: 2.24.2
-  # google_sign_in: 6.2.1
+  google_sign_in: 6.2.1
   firebase_auth: 4.15.3
   sentry_dio: 7.14.0
-  retrofit: ^4.0.3
-  json_annotation: ^4.8.1
-  dartz: ^0.10.1
-  connectivity_plus: ^5.0.2
-  cloud_firestore: ^4.14.0
+  retrofit: 4.0.3
+  json_annotation: 4.8.1
+  dartz: 0.10.1
+  connectivity_plus: 5.0.2
+  # cloud_firestore: 4.14.0
   # photo_view: 0.14.0
   
   
@@ -99,11 +99,12 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: 2.0.0
   alice: 0.4.1
-  retrofit_generator: ^8.0.6
-  build_runner: ^2.4.7
-  json_serializable: ^6.7.1
+  retrofit_generator: 8.0.6
+  build_runner: 2.4.7
+  json_serializable: 6.7.1
+  change_app_package_name: ^1.0.0
 
 
 # For information on the generic Dart part of this file, see the

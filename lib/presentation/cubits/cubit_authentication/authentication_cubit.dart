@@ -1,19 +1,13 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:healthline/app/app_controller.dart';
 import 'package:healthline/data/datasource/authentication/auth_datasource.dart';
 import 'package:healthline/data/firebase/auth_service.dart';
-import 'package:healthline/data/storage/app_storage.dart';
-import 'package:healthline/data/storage/data_constants.dart';
 import 'package:healthline/domain/usecase/auth_usecase.dart';
 import 'package:healthline/repository/authentication/auth_repository.dart';
 
 import '../../../util/log_data.dart';
-import '../../../util/validate.dart';
 import '../../resources/enum.dart';
 
 part 'authentication_state.dart';
@@ -65,118 +59,136 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
   }
 
-  Future<void> login(String contact,
-      {required String password,
-      required bool isDoctor,
-      required bool isPatient,
-      bool remember = false}) async {
+  Future<void> signInWithGoogle() async {
     emit(LoginState(blocState: BlocState.Pending));
-    String? error;
-
     try {
-      if (isPatient) {
-        if (num.tryParse(contact) != null) {
-          var response = _authUsecase
-              .loginWithPhone(Validate().changePhoneFormat(contact));
-        } else {
-          var response = await _authUsecase.loginWithEmail(
-              email: contact, password: password);
-          response.fold((errorRes) {
-            logPrint(errorRes.message);
-            throw errorRes.message;
-          }, (res) {
-            AppStorage().setString(
-                key: DataConstants.PATIENT, value: json.encode(res.toJson()));
-            AppController.instance.authState = AuthState.PatientAuthorized;
-          });
-        }
-      } else if (isDoctor) {
-        // LoginResponse response =
-        //     await _commonRepository.loginDoctor(phone.trim(), password.trim());
-        // AppStorage()
-        //     .setString(key: DataConstants.DOCTOR, value: response.toJson());
-        // // doctor = true;
-        // AppController.instance.authState = AuthState.DoctorAuthorized;
-      }
-      AppStorage().setBool(key: DataConstants.REMEMBER, value: remember);
-      // SocketManager.instance.close();
-      // SocketManager.instance.init();
+      var response = await _authUsecase.signInWithGoogle();
+      response.fold((errorRes) {
+        logPrint(errorRes.message);
+        throw errorRes.message;
+      }, (res) {
+        logPrint(res.additionalUserInfo.toString());
+        logPrint(res.user.toString());
+        logPrint(res.credential.toString());
+      });
       emit(LoginState(blocState: BlocState.Successed));
     } catch (e) {
-      AppController.instance.authState = AuthState.Unauthorized;
-      error = e.toString();
-    }
-    if (error != null) {
-      emit(LoginState(error: error.toString(), blocState: BlocState.Failed));
-    }
-
-    // if (isPatient == true) {
-    //   try {
-    //     LoginResponse response =
-    //         await _commonRepository.loginPatient(phone.trim(), password.trim());
-    //     AppStorage()
-    //         .setString(key: DataConstants.PATIENT, value: response.toJson());
-    //     patient = true;
-    //   } catch (e) {
-    // DioException er = e as DioException;
-    // // errorPatient = er.response!.data['message'].toString();
-    //   }
-    // }
-    // if (isDoctor == true) {
-    //   try {
-    //     LoginResponse response =
-    //         await _commonRepository.loginDoctor(phone.trim(), password.trim());
-    //     AppStorage()
-    //         .setString(key: DataConstants.DOCTOR, value: response.toJson());
-    //     doctor = true;
-    //   } catch (e) {
-    //     DioException er = e as DioException;
-    //     errorDoctor = er.response!.data['message'].toString();
-    //   }
-    // }
-    // if (doctor == true || patient == true) {
-    //   if (doctor == true && patient == true) {
-    //     AppController.instance.authState = AuthState.AllAuthorized;
-    //   } else if (doctor == true) {
-    //     AppController.instance.authState = AuthState.DoctorAuthorized;
-    //   } else {
-    //     AppController.instance.authState = AuthState.PatientAuthorized;
-    //   }
-    // AppStorage().setBool(key: DataConstants.REMEMBER, value: remember);
-    // emit(LogInSuccessed(
-    //     isDoctor: doctor,
-    //     isPatient: patient,
-    //     errorPatient: errorPatient,
-    //     errorDoctor: errorDoctor));
-    // }
-    // else {
-    //   AppController.instance.authState = AuthState.Unauthorized;
-    //   emit(
-    //     LogInError(
-    //         isDoctor: false,
-    //         isPatient: false,
-    //         errorDoctor: errorDoctor,
-    //         errorPatient: errorPatient),
-    //   );
-    // }
-  }
-
-  Future<void> logout() async {
-    emit(LogoutState(blocState: BlocState.Pending));
-    try {
-      // await RestClient().logout();
-      emit(LogoutState(blocState: BlocState.Successed));
-    } catch (e) {
-      logPrint(e);
-      emit(LogoutState(blocState: BlocState.Failed, error: e.toString()));
+      emit(LoginState(blocState: BlocState.Failed, error: e.toString()));
     }
   }
+
+  // Future<void> login(String contact,
+  //     {required String password,
+  //     required bool isDoctor,
+  //     required bool isPatient,
+  //     bool remember = false}) async {
+  //   emit(LoginState(blocState: BlocState.Pending));
+  //   String? error;
+
+  //   try {
+  //     if (isPatient) {
+  //       if (num.tryParse(contact) != null) {
+  //         var response = _authUsecase
+  //             .loginWithPhone(Validate().changePhoneFormat(contact));
+  //       } else {
+  //         var response = await _authUsecase.loginWithEmail(
+  //             email: contact, password: password);
+  //         response.fold((errorRes) {
+  //           logPrint(errorRes.message);
+  //           throw errorRes.message;
+  //         }, (res) {
+  //           AppStorage().setString(
+  //               key: DataConstants.PATIENT, value: json.encode(res.toJson()));
+  //           AppController.instance.authState = AuthState.PatientAuthorized;
+  //         });
+  //       }
+  //     } else if (isDoctor) {
+  //       // LoginResponse response =
+  //       //     await _commonRepository.loginDoctor(phone.trim(), password.trim());
+  //       // AppStorage()
+  //       //     .setString(key: DataConstants.DOCTOR, value: response.toJson());
+  //       // // doctor = true;
+  //       // AppController.instance.authState = AuthState.DoctorAuthorized;
+  //     }
+  // AppStorage().setBool(key: DataConstants.REMEMBER, value: remember);
+  //     // SocketManager.instance.close();
+  //     // SocketManager.instance.init();
+  //     emit(LoginState(blocState: BlocState.Successed));
+  //   } catch (e) {
+  //     AppController.instance.authState = AuthState.Unauthorized;
+  //     error = e.toString();
+  //   }
+  //   if (error != null) {
+  //     emit(LoginState(error: error.toString(), blocState: BlocState.Failed));
+  //   }
+
+  //   // if (isPatient == true) {
+  //   //   try {
+  //   //     LoginResponse response =
+  //   //         await _commonRepository.loginPatient(phone.trim(), password.trim());
+  //   //     AppStorage()
+  //   //         .setString(key: DataConstants.PATIENT, value: response.toJson());
+  //   //     patient = true;
+  //   //   } catch (e) {
+  //   // DioException er = e as DioException;
+  //   // // errorPatient = er.response!.data['message'].toString();
+  //   //   }
+  //   // }
+  //   // if (isDoctor == true) {
+  //   //   try {
+  //   //     LoginResponse response =
+  //   //         await _commonRepository.loginDoctor(phone.trim(), password.trim());
+  //   //     AppStorage()
+  //   //         .setString(key: DataConstants.DOCTOR, value: response.toJson());
+  //   //     doctor = true;
+  //   //   } catch (e) {
+  //   //     DioException er = e as DioException;
+  //   //     errorDoctor = er.response!.data['message'].toString();
+  //   //   }
+  //   // }
+  //   // if (doctor == true || patient == true) {
+  //   //   if (doctor == true && patient == true) {
+  //   //     AppController.instance.authState = AuthState.AllAuthorized;
+  //   //   } else if (doctor == true) {
+  //   //     AppController.instance.authState = AuthState.DoctorAuthorized;
+  //   //   } else {
+  //   //     AppController.instance.authState = AuthState.PatientAuthorized;
+  //   //   }
+  //   // AppStorage().setBool(key: DataConstants.REMEMBER, value: remember);
+  //   // emit(LogInSuccessed(
+  //   //     isDoctor: doctor,
+  //   //     isPatient: patient,
+  //   //     errorPatient: errorPatient,
+  //   //     errorDoctor: errorDoctor));
+  //   // }
+  //   // else {
+  //   //   AppController.instance.authState = AuthState.Unauthorized;
+  //   //   emit(
+  //   //     LogInError(
+  //   //         isDoctor: false,
+  //   //         isPatient: false,
+  //   //         errorDoctor: errorDoctor,
+  //   //         errorPatient: errorPatient),
+  //   //   );
+  //   // }
+  // }
+
+  // Future<void> logout() async {
+  //   emit(LogoutState(blocState: BlocState.Pending));
+  //   try {
+  //     // await RestClient().logout();
+  //     emit(LogoutState(blocState: BlocState.Successed));
+  //   } catch (e) {
+  //     logPrint(e);
+  //     emit(LogoutState(blocState: BlocState.Failed, error: e.toString()));
+  //   }
+  // }
 
   Future<void> changePassword(
       {required String password, required String newPassword}) async {
     emit(ChangePasswordState(blocState: BlocState.Pending));
     try {
-      int? code;
+      // int? code;
       // if (AppController().authState == AuthState.DoctorAuthorized) {
       //   code = await _doctorRepository.changePassword(
       //       password: password, newPassword: newPassword);
@@ -211,7 +223,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       bool isDoctor = false}) async {
     emit(ResetPasswordState(blocState: BlocState.Pending));
     try {
-      int? code;
+      // int? code;
       // if (isDoctor) {
       //   code = await _doctorRepository.resetPassword(
       //       password: password,

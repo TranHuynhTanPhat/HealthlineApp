@@ -49,6 +49,15 @@
 		<string>The app needs access to your camera for meetings.</string>
 		<key>NSMicrophoneUsageDescription</key>
 		<string>The app needs access to your microphone for meetings.</string>
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsLocalNetworking</key>
+			<true/>
+		</dict>
+		<key>GIDClientID</key>
+		<!-- TODO Replace this value: -->
+		<!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
+		<string>618510032600-svel5mus0uaftgiljutd5h5gpvnb705l.apps.googleusercontent.com</string>
 		<key>CFBundleURLTypes</key>
 		<array>
 			<dict>
@@ -56,11 +65,14 @@
 				<string>Editor</string>
 				<key>CFBundleURLName</key>
 				<!-- You can find it on /ios/project.pbxproj - 'PRODUCT_BUNDLE_IDENTIFIER' -->
-				<string>com.example.healthline</string>
+				<string>com.example.healthline_app</string>
 				<key>CFBundleURLSchemes</key>
 				<array>
 					<!-- Your app title -->
 					<string>Healthline</string>
+					<!-- TODO Replace this value: -->
+					<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+					<string>com.googleusercontent.apps.618510032600-svel5mus0uaftgiljutd5h5gpvnb705l</string>
 				</array>
 			</dict>
 		</array>

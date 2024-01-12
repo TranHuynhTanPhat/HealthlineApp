@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../util/keyboard.dart';
 import '../../../../util/translate.dart';
-import '../../../../util/validate.dart';
-import '../../../cubits/export.dart';
 import '../../../resources/export.dart';
 import '../../../widget/elevated_button_widget.dart';
 import 'exports.dart';
@@ -278,12 +275,12 @@ class LoginButton extends StatelessWidget {
         if (_formKey.currentState!.validate()) {
           _formKey.currentState!.save();
           KeyboardUtil.hideKeyboard(context);
-          context.read<AuthenticationCubit>().login(
-              _controllerContact.text,
-              password:_controllerPassword.text,
-              isDoctor: isDoctor,
-              isPatient: isPatient,
-              remember: remember);
+          // context.read<AuthenticationCubit>().login(
+          //     _controllerContact.text,
+          //     password:_controllerPassword.text,
+          //     isDoctor: isDoctor,
+          //     isPatient: isPatient,
+          //     remember: remember);
         }
       },
     );

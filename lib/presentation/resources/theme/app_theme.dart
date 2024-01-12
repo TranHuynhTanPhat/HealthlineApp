@@ -61,8 +61,9 @@ final appTheme = ThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: primary,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSize.s12),
+        borderRadius: BorderRadius.circular(AppSize.s60),
       ),
+      shadowColor: primary.withOpacity(.1)
     ),
   ),
 

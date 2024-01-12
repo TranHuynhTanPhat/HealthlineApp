@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBXdX7ZzokkjhHVx3N-qAU2Ht_mVxJr0H0',
-    appId: '1:618510032600:android:f95fcf114bb5bf8d4b81ad',
+    appId: '1:618510032600:android:14d68da6c1d532734b81ad',
     messagingSenderId: '618510032600',
     projectId: 'healthlineapp-1047d',
     storageBucket: 'healthlineapp-1047d.appspot.com',
@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '618510032600',
     projectId: 'healthlineapp-1047d',
     storageBucket: 'healthlineapp-1047d.appspot.com',
+    iosClientId: '618510032600-svel5mus0uaftgiljutd5h5gpvnb705l.apps.googleusercontent.com',
     iosBundleId: 'com.example.healthline',
   );
 }

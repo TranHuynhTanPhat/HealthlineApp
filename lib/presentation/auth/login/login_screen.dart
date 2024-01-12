@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:healthline/app/app_controller.dart';
 
 import '../../../util/keyboard.dart';
 import '../../../util/translate.dart';

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthline/presentation/cubits/cubit_authentication/authentication_cubit.dart';
 
 import '../../../../util/translate.dart';
 import '../../../resources/export.dart';
+import '../../../widget/google_button_widget.dart';
 
 class OptionLogIn extends StatelessWidget {
   const OptionLogIn({super.key});
@@ -10,17 +13,21 @@ class OptionLogIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Padding(
-        //   padding: EdgeInsets.only(
-        //       top: dimensHeight() * 4,
-        //       right: dimensWidth() * 3,
-        //       left: dimensWidth() * 3),
-        //   child: const Divider(),
-        // ),
-        // Container(
-        //   padding: EdgeInsets.symmetric(horizontal: dimensWidth() * 9),
-        //   child:  GoogleButtonWidget(onPressed: () {  },),
-        // ),
+        Padding(
+          padding: EdgeInsets.only(
+              top: dimensHeight() * 4,
+              right: dimensWidth() * 3,
+              left: dimensWidth() * 3),
+          child: const Divider(),
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: dimensWidth() * 9),
+          child: GoogleButtonWidget(
+            onPressed: () {
+              context.read<AuthenticationCubit>().signInWithGoogle();
+            },
+          ),
+        ),
         const Divider(),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
