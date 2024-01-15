@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../util/keyboard.dart';
 import '../../../../util/translate.dart';
+import '../../../../util/validate.dart';
+import '../../../cubits/export.dart';
 import '../../../resources/export.dart';
+import '../../../resources/string_manager.dart';
 import '../../../widget/elevated_button_widget.dart';
+import '../../../widget/text_field_widget.dart';
 import 'exports.dart';
 
 class LogInForm extends StatefulWidget {
@@ -51,11 +56,75 @@ class _LogInFormState extends State<LogInForm> {
           height: dimensWidth() * 7.8,
           child: _getRole(context),
         ),
-        if (isPatient)
-          FormLoginPatient(
-              controllerContact: _controllerContact,
-              controllerPassword: _controllerPassword,
-              formKey: _formKey),
+        Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: dimensHeight() * 3,
+                ),
+                child: TextFieldWidget(
+                  validate: (value) {
+                    String? error = Validate().validatePhone(context, value!);
+                    return error;
+                  },
+                  controller: _controllerContact,
+                  prefix: Padding(
+                    padding: EdgeInsets.only(right: dimensWidth() * .5),
+                    child: Text(
+                      '+84',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  label: StringManager.phone.translate(context),
+                  textInputType: TextInputType.phone,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: dimensHeight() * 3,
+                ),
+                child: TextFieldWidget(
+                  validate: (value) {
+                    try {
+                      if (value!.trim().isEmpty) {
+                        return translate(context, 'please_enter_password');
+                      }
+                      return null;
+                    } catch (e) {
+                      return translate(context, 'please_enter_password');
+                    }
+                  },
+                  controller: _controllerPassword,
+                  label: translate(context, 'password'),
+                  obscureText: !showPassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(showPassword
+                        ? Icons.visibility_rounded
+                        : Icons.visibility_off_rounded),
+                    onPressed: () {
+                      setState(
+                        () {
+                          showPassword = !showPassword;
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // FormLoginPatient(
+        //     controllerContact: _controllerContact,
+        //     controllerPassword: _controllerPassword,
+        //     formKey: _formKey),
         // Form(
         //   key: _formKey,
         //   child: Column(
@@ -275,12 +344,11 @@ class LoginButton extends StatelessWidget {
         if (_formKey.currentState!.validate()) {
           _formKey.currentState!.save();
           KeyboardUtil.hideKeyboard(context);
-          // context.read<AuthenticationCubit>().login(
-          //     _controllerContact.text,
-          //     password:_controllerPassword.text,
-          //     isDoctor: isDoctor,
-          //     isPatient: isPatient,
-          //     remember: remember);
+          context.read<AuthenticationCubit>().signIn(_controllerContact.text,
+              password: _controllerPassword.text,
+              isDoctor: isDoctor,
+              isPatient: isPatient,
+              remember: remember);
         }
       },
     );

@@ -1,7 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:healthline/data/storage/data_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:healthline/data/storage/data_constants.dart';
 
 class AppStorage {
   late SharedPreferences _pref;
@@ -42,6 +43,7 @@ class AppStorage {
     _pref.remove(DataConstants.DOCTOR);
     _pref.remove(DataConstants.PATIENT);
     _pref.remove(DataConstants.REMEMBER);
+    _pref.remove(DataConstants.ACCESS_TOKEN);
   }
 
   // Future<void> savePatient({required LoginResponse user}) async {

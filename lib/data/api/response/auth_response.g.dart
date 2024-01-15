@@ -1,17 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'auth_model.dart';
+part of 'auth_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-AuthModel _$AuthModelFromJson(Map<String, dynamic> json) => AuthModel(
+AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) => AuthResponse(
       id: json['id'] as String?,
-      jwtToken: json['jwtToken'] as String?,
+      jwtToken: json['jwt_token'] as String?,
     );
 
-Map<String, dynamic> _$AuthModelToJson(AuthModel instance) => <String, dynamic>{
+Map<String, dynamic> _$AuthResponseToJson(AuthResponse instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'jwtToken': instance.jwtToken,
+      'jwt_token': instance.jwtToken,
     };

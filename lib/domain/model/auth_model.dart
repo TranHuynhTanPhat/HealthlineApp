@@ -3,24 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'auth_model.g.dart';
 
-// ignore: must_be_immutable
 @JsonSerializable()
 class AuthModel extends Equatable {
-  String? localId;
-  String? email;
-  String? displayName;
-  String? accessToken;
-  String? refreshToken;
-  AuthModel({
-    this.localId,
-    this.email,
-    this.displayName,
-    this.accessToken,
-    this.refreshToken,
-  });
+  final String? id;
+  final String? jwtToken;
   @override
-  List<Object?> get props =>
-      [localId, email, displayName, accessToken, refreshToken];
+  List<Object?> get props => [id, jwtToken];
+  const AuthModel({required this.id, required this.jwtToken});
   factory AuthModel.fromJson(Map<String, dynamic> json) =>
       _$AuthModelFromJson(json);
   Map<String, dynamic> toJson() => _$AuthModelToJson(this);

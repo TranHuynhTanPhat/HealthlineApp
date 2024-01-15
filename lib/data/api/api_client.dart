@@ -1,4 +1,5 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, constant_identifier_names
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
@@ -6,6 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sentry_dio/sentry_dio.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -16,6 +18,9 @@ import 'package:healthline/data/api/api_constants.dart';
 import 'package:healthline/data/storage/app_storage.dart';
 import 'package:healthline/presentation/resources/enum.dart';
 import 'package:healthline/util/log_data.dart';
+
+import '../storage/data_constants.dart';
+import 'response/auth_response.dart';
 
 class ApiClient {
   static const CONNECT_TIME_OUT = 60 * 1000;
@@ -66,7 +71,7 @@ class ApiClient {
     headers[LANGUAGE] = language;
   }
 
-  BaseOptions getDioBaseOption(isUpload) {
+  BaseOptions getDioBaseOption() {
     return BaseOptions(
       connectTimeout: const Duration(seconds: CONNECT_TIME_OUT),
       receiveTimeout: const Duration(seconds: RECEIVE_TIME_OUT),
@@ -75,8 +80,9 @@ class ApiClient {
     );
   }
 
-  Dio getDio({bool isUpload = false, bool isDoctor = false}) {
-    var dio = Dio(instance.getDioBaseOption(isUpload));
+  Dio getDio() {
+    // var dio = Dio(instance.getDioBaseOption(isUpload));
+    var dio = Dio(instance.getDioBaseOption());
     dio.interceptors.add(AliceInspector().alice.getDioInterceptor());
 
     dio.interceptors.add(CookieManager(instance.cookieJar));
@@ -97,84 +103,93 @@ class ApiClient {
             options.path = dotenv.get('BASE_URL', fallback: '') + options.path;
           }
 
-          // LoginResponse? user;
+          AuthResponse? user;
 
-          // /// check access token
-          // try {
-          //   user = isDoctor == true
-          //       ? LoginResponse.fromJson(
-          //           AppStorage().getString(key: DataConstants.DOCTOR)!)
-          //       : LoginResponse.fromJson(
-          //           AppStorage().getString(key: DataConstants.PATIENT)!);
-          // } catch (e) {
-          //   logPrint(e);
-          // }
+          /// check access token
+          try {
+            user = AppController().authState == AuthState.DoctorAuthorized
+                ? AuthResponse.fromJson(json
+                    .decode(AppStorage().getString(key: DataConstants.DOCTOR)!))
+                : AuthResponse.fromJson(json.decode(
+                    AppStorage().getString(key: DataConstants.PATIENT)!));
+          } catch (e) {
+            logPrint(e);
+          }
 
-          // if (user == null || user.jwtToken == null) {
-          //   return handler.next(options);
-          // }
+          if (user == null || user.jwtToken == null) {
+            return handler.next(options);
+          }
 
-          // bool isExpired = JwtDecoder.isExpired(user.jwtToken!);
+          String? jwtToken =
+              AppStorage().getString(key: DataConstants.ACCESS_TOKEN);
 
-          // /// if access token expired ---> refresh token
-          // /// else continue
-          // /// dont rt when path contain LOG_IN or SIGN_UP or REFRESH_TOKEN or LOG_OUT
+          bool isExpired = JwtDecoder.isExpired(jwtToken!);
 
-          // if (isExpired &&
-          //     !options.path.contains(ApiConstants.USER_REFRESH_TOKEN) &&
-          //     !options.path.contains(ApiConstants.USER_LOG_IN) &&
-          //     !options.path.contains(ApiConstants.USER_LOG_OUT) &&
-          //     !options.path.contains(ApiConstants.USER)) {
-          //   try {
-          //     /// refresh token if success continue
-          //     /// else logout
+          /// if access token expired ---> refresh token
+          /// else continue
+          /// dont rt when path contain LOG_IN or SIGN_UP or REFRESH_TOKEN or LOG_OUT
 
-          //     if (isDoctor == true) {
-          //       final response = await dio.post(
-          //           dotenv.get('BASE_URL', fallback: '') +
-          //               ApiConstants.DOCTOR_REFRESH_TOKEN);
-          //       if (response.statusCode == 200) {
-          //         if (response.data != false) {
-          //           options.headers[ACCESS_TOKEN_HEADER] =
-          //               "Bearer ${response.data["jwtToken"]}";
-          //           AppStorage().setString(
-          //             key: DataConstants.DOCTOR,
-          //             value: user.copyWith(jwtToken: response.data).toJson(),
-          //           );
-          //         } else {
-          //           logout();
-          //         }
-          //       } else {
-          //         logout();
-          //       }
-          //     } else {
-          //       final response = await dio.post(
-          //           dotenv.get('BASE_URL', fallback: '') +
-          //               ApiConstants.USER_REFRESH_TOKEN);
-          //       if (response.statusCode == 200) {
-          //         if (response.data != false) {
-          //           options.headers[ACCESS_TOKEN_HEADER] =
-          //               "Bearer ${response.data["jwtToken"]}";
-          //           AppStorage().setString(
-          //             key: DataConstants.DOCTOR,
-          //             value: user.copyWith(jwtToken: response.data).toJson(),
-          //           );
-          //         } else {
-          //           logout();
-          //         }
-          //       } else {
-          //         logout();
-          //       }
-          //     }
+          if (isExpired &&
+              !options.path.contains(ApiConstants.USER_REFRESH_TOKEN) &&
+              !options.path.contains(ApiConstants.USER_LOG_IN) &&
+              !options.path.contains(ApiConstants.USER_LOG_OUT) &&
+              !options.path.contains(ApiConstants.USER)) {
+            try {
+              /// refresh token if success continue
+              /// else logout
 
-          //     return handler.next(options);
-          //   } on DioException catch (error) {
-          //     return handler.reject(error, true);
-          //   }
-          // } else {
-          //   options.headers[ACCESS_TOKEN_HEADER] = "Bearer ${user.jwtToken}";
-          //   return handler.next(options);
-          // }
+              if (AppController().authState == AuthState.DoctorAuthorized) {
+                final response = await dio.post(
+                    dotenv.get('BASE_URL', fallback: '') +
+                        ApiConstants.DOCTOR_REFRESH_TOKEN);
+                if (response.statusCode == 200) {
+                  if (response.data != null) {
+                    options.headers[ACCESS_TOKEN_HEADER] =
+                        "Bearer ${response.data["jwtToken"]}";
+                    AppStorage().setString(
+                      key: DataConstants.DOCTOR,
+                      value: user
+                          .copyWith(jwtToken: response.data)
+                          .toJson()
+                          .toString(),
+                    );
+                  } else {
+                    logout();
+                  }
+                } else {
+                  logout();
+                }
+              } else {
+                final response = await dio.post(
+                    dotenv.get('BASE_URL', fallback: '') +
+                        ApiConstants.USER_REFRESH_TOKEN);
+                if (response.statusCode == 200) {
+                  if (response.data != null) {
+                    options.headers[ACCESS_TOKEN_HEADER] =
+                        "Bearer ${response.data["jwtToken"]}";
+                    AppStorage().setString(
+                      key: DataConstants.DOCTOR,
+                      value: user
+                          .copyWith(jwtToken: response.data)
+                          .toJson()
+                          .toString(),
+                    );
+                  } else {
+                    logout();
+                  }
+                } else {
+                  logout();
+                }
+              }
+
+              return handler.next(options);
+            } on DioException catch (error) {
+              return handler.reject(error, true);
+            }
+          } else {
+            options.headers[ACCESS_TOKEN_HEADER] = "Bearer $jwtToken";
+            return handler.next(options);
+          }
           // } else {
           //   logPrint('CALL_CLOUDINARY_API');
 
