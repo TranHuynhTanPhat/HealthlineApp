@@ -24,7 +24,7 @@ class _APIClientType implements APIClientType {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
+    _data.addAll(request.toMap());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<DataResponse>(Options(
       method: 'POST',

@@ -54,6 +54,7 @@
 			<key>NSAllowsLocalNetworking</key>
 			<true/>
 		</dict>
+		
 		<key>GIDClientID</key>
 		<!-- TODO Replace this value: -->
 		<!-- Copied from GoogleService-Info.plist key CLIENT_ID -->

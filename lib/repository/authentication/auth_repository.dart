@@ -6,6 +6,7 @@ import 'package:healthline/data/datasource/authentication/auth_datasource.dart';
 import 'package:healthline/data/error_response.dart';
 import 'package:healthline/repository/authentication/auth_repository_type.dart';
 import 'package:healthline/util/app_mixin.dart';
+import 'package:healthline/util/log_data.dart';
 
 class AuthRepository with ConnectivityMixin implements AuthRepositoryType {
   final AuthDataSource dataSource;
@@ -13,7 +14,7 @@ class AuthRepository with ConnectivityMixin implements AuthRepositoryType {
     required authDataSource,
   }) : dataSource = authDataSource;
   @override
-  Future<Either<ErrorResponse, UserCredential>> signInWithGoogle() async {
+  Future<Either<ErrorResponse, UserCredential?>> signInWithGoogle() async {
     if (await isInConnection()) {
       try {
         final response = await dataSource.signInWithGoogle();
@@ -64,7 +65,7 @@ class AuthRepository with ConnectivityMixin implements AuthRepositoryType {
   }
 
   @override
-  Future<Either<ErrorResponse, AuthResponse>> signInPatient(
+  Future<Either<ErrorResponse, AuthResponse?>> signInPatient(
       {required String phone, required String password}) async {
     if (await isInConnection()) {
       try {
@@ -72,6 +73,8 @@ class AuthRepository with ConnectivityMixin implements AuthRepositoryType {
             await dataSource.signInPatient(phone: phone, password: password);
         if (response == null) {
           return const Left(NoDataErrorResponse());
+        } else {
+          return Right(response);
         }
       } catch (e) {
         return Left(ErrorResponse(e.toString()));

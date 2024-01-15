@@ -70,9 +70,11 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         logPrint(errorRes.message);
         throw errorRes.message;
       }, (res) {
-        logPrint(res.additionalUserInfo.toString());
-        logPrint(res.user.toString());
-        logPrint(res.credential.toString());
+        if (res != null) {
+          logPrint(res.additionalUserInfo.toString());
+          logPrint(res.user.toString());
+          logPrint(res.credential.toString());
+        }
       });
       emit(LoginState(blocState: BlocState.Successed));
     } catch (e) {
@@ -94,7 +96,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
             phone: contact, password: password);
         response.fold((errorRes) {
           logPrint(errorRes.message);
-          throw errorRes.message;
+          logPrint("CHECKKK");
+          error = errorRes.message;
+          // throw errorRes.message;
         }, (res) {
           AppStorage().setString(
               key: DataConstants.PATIENT, value: json.encode(res.toJson()));

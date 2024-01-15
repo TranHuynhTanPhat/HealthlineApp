@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:healthline/data/api/api_client.dart';
 import 'package:healthline/data/api/api_client_type.dart';
 import 'package:healthline/data/api/request/auth_request.dart';
@@ -9,7 +11,8 @@ import 'package:healthline/util/log_data.dart';
 
 class AuthDataSource implements AuthDataSourceType {
   final AuthService _authService = AuthService();
-  final APIClientType _apiClient = APIClientType(ApiClient().getDio());
+  final APIClientType _apiClient = APIClientType(ApiClient().getDio(),
+      baseUrl: dotenv.get("BASE_URL", fallback: ""));
 
   @override
   Future<UserCredential?> signInWithGoogle() {
@@ -27,6 +30,8 @@ class AuthDataSource implements AuthDataSourceType {
       var response = await _apiClient
           .signInPatient(AuthRequest(phone: phone, password: password));
       return AuthResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw e.response?.data['message'].toString() ?? e.response.toString();
     } catch (e) {
       rethrow;
     }

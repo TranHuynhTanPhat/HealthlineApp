@@ -344,7 +344,8 @@ class LoginButton extends StatelessWidget {
         if (_formKey.currentState!.validate()) {
           _formKey.currentState!.save();
           KeyboardUtil.hideKeyboard(context);
-          context.read<AuthenticationCubit>().signIn(_controllerContact.text,
+          context.read<AuthenticationCubit>().signIn(
+              Validate().changePhoneFormat(_controllerContact.text.trim()),
               password: _controllerPassword.text,
               isDoctor: isDoctor,
               isPatient: isPatient,

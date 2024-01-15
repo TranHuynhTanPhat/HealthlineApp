@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -11,7 +13,7 @@ Future<void> main() async {
   await dotenv.load();
   await AppController.instance.init();
 
-// HttpOverrides.global = MyHttpOverrides();
+  HttpOverrides.global = MyHttpOverrides();
   // Sentry
   await SentryFlutter.init(
     (options) {
@@ -27,4 +29,13 @@ Future<void> main() async {
     },
     appRunner: () => runApp(MyApp()),
   );
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
 }

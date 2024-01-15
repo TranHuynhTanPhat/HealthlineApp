@@ -7,12 +7,12 @@ part of 'auth_request.dart';
 // **************************************************************************
 
 AuthRequest _$AuthRequestFromJson(Map<String, dynamic> json) => AuthRequest(
-      profileId: json['profile_id'] as String?,
+      profileId: json['profileId'] as String?,
       avatar: json['avatar'] as String?,
       phone: json['phone'] as String?,
       password: json['password'] as String?,
-      passwordConfirm: json['password_confirm'] as String?,
-      fullName: json['full_name'] as String?,
+      passwordConfirm: json['passwordConfirm'] as String?,
+      fullName: json['fullName'] as String?,
       gender: json['gender'] as String?,
       birthday: json['birthday'] as String?,
       address: json['address'] as String?,
@@ -23,12 +23,12 @@ AuthRequest _$AuthRequestFromJson(Map<String, dynamic> json) => AuthRequest(
 
 Map<String, dynamic> _$AuthRequestToJson(AuthRequest instance) =>
     <String, dynamic>{
-      'profileId': instance.profileId,
+      'profile_id': instance.profileId,
       'avatar': instance.avatar,
       'phone': instance.phone,
       'password': instance.password,
       'password_confirm': instance.passwordConfirm,
-      'full_name': instance.fullName,
+      'fullName': instance.fullName,
       'gender': instance.gender,
       'birthday': instance.birthday,
       'address': instance.address,
@@ -37,8 +37,8 @@ Map<String, dynamic> _$AuthRequestToJson(AuthRequest instance) =>
     };
 
 const _$RelationshipEnumMap = {
-  Relationship.Children: 'children',
-  Relationship.Parent: 'parent',
-  Relationship.Grandparent: 'grandparent',
-  Relationship.Sibling: 'sibling',
+  Relationship.Children: 'Children',
+  Relationship.Parent: 'Parent',
+  Relationship.Grandparent: 'Grandparent',
+  Relationship.Sibling: 'Sibling',
 };

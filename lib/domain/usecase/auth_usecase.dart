@@ -16,7 +16,7 @@ class AuthUsecase implements AuthUseCaseType {
   AuthUsecase({required AuthRepository authRepository})
       : repository = authRepository;
   @override
-  Future<Either<Failure, UserCredential>> signInWithGoogle() async {
+  Future<Either<Failure, UserCredential?>> signInWithGoogle() async {
     final result = await repository.signInWithGoogle();
     return result.fold((errorResponse) {
       return Left(Failure(message: errorResponse.message));
@@ -51,9 +51,15 @@ class AuthUsecase implements AuthUseCaseType {
     final result =
         await repository.signInPatient(phone: phone, password: password);
     return result.fold((errorResponse) {
+      logPrint("CHECKKK");
+
       return Left(Failure(message: errorResponse.message));
     }, (response) {
-      return Right(AuthTranslator.toAuthModel(response: response));
+      if (response != null) {
+        return Right(AuthTranslator.toAuthModel(response: response));
+      } else {
+        return const Right(AuthModel(id: null, jwtToken: null));
+      }
     });
   }
 }
