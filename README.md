@@ -1,4 +1,4 @@
-# bt1
+# healthline
 
 A new Flutter project.
 
@@ -14,3 +14,12 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Release Android development
+shorebird release android --flavor dev --artifact apk  ./lib/flavors/main_development.dart 
+
+Patch Android development
+shorebird patch android --flavor dev ./lib/flavors/main_development.dart
+
+build apk --release --flavor prod lib/flavors/main_production.dart 

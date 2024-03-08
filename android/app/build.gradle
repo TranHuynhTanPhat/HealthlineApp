@@ -1,15 +1,14 @@
-plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
-}
-
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
         localProperties.load(reader)
     }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -22,12 +21,22 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+apply plugin: 'com.android.application'
+// START: FlutterFire Configuration
+// apply plugin: 'com.google.gms.google-services'
+// END: FlutterFire Configuration
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
 android {
-    namespace "com.example.bt1"
-    compileSdkVersion flutter.compileSdkVersion
+    namespace "com.example.healthline"
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -42,13 +51,42 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.bt1"
+        applicationId "com.example.healthline"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 24
+        targetSdkVersion 33
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // Local Notification 
+        multiDexEnabled true
+        ndk {
+            abiFilters.clear()
+        }
+        splits {
+            abi {
+                enable true //enables the ABIs split mechanism
+                reset() //reset the list of ABIs to be included to an empty string
+                include 'arm64-v8a', 'armeabi-v7a', 'x86'
+                universalApk true
+            }
+        }
+    }
+
+    flavorDimensions "track"
+    productFlavors {
+        dev {
+            dimension "track"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [applicationLabel: "[dev] HealthLine"]
+
+        }
+        prod {
+            dimension "track"
+            applicationIdSuffix ".prod"
+            manifestPlaceholders = [applicationLabel: "[prod] HealthLine"]
+        }
     }
 
     buildTypes {
@@ -56,12 +94,31 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilters 'armeabi-v7a','arm64-v8a','x86_64'
+            } 
         }
     }
+    // signingConfigs {
+    //     debug {
+    //         storeFile file("../debug.keystore")
+    //         storePassword "android"
+    //         keyAlias "androiddebugkey"
+    //         keyPassword "android"
+    //     }
+    // }
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    implementation 'androidx.window:window:1.0.0'
+    implementation 'androidx.window:window-java:1.0.0'
+}
