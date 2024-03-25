@@ -1,21 +1,21 @@
 // ignore: depend_on_referenced_packages
 import 'dart:convert';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
-import 'package:healthline/utils/log_data.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:meilisearch/meilisearch.dart';
 
 import 'package:healthline/data/api/meilisearch_manager.dart';
 import 'package:healthline/data/api/models/responses/doctor_response.dart';
 import 'package:healthline/res/enum.dart';
+import 'package:healthline/utils/log_data.dart';
 
 part 'doctor_state.dart';
 
-class DoctorCubit extends Cubit<DoctorState> {
+class DoctorCubit extends HydratedCubit<DoctorState> {
   DoctorCubit()
       : super(
-          DoctorInitial(
+          const DoctorState(
             doctors: [],
             blocState: BlocState.Successed,
           ),
@@ -31,7 +31,8 @@ class DoctorCubit extends Cubit<DoctorState> {
       SearchDoctorState(
           doctors: state.doctors,
           blocState: BlocState.Pending,
-          pageKey: pageKey),
+          pageKey: pageKey,
+          recentDoctors: state.recentDoctors),
     );
     try {
       // meiliSearchManager.index(uid: 'doctors');
@@ -49,7 +50,10 @@ class DoctorCubit extends Cubit<DoctorState> {
       callback(doctors);
       emit(
         SearchDoctorState(
-            doctors: doctors, blocState: BlocState.Successed, pageKey: pageKey),
+            doctors: doctors,
+            blocState: BlocState.Successed,
+            pageKey: pageKey,
+            recentDoctors: state.recentDoctors),
       );
     } catch (error) {
       logPrint(error);
@@ -58,9 +62,42 @@ class DoctorCubit extends Cubit<DoctorState> {
             error: error.toString(),
             doctors: state.doctors,
             blocState: BlocState.Failed,
-            pageKey: pageKey),
+            pageKey: pageKey,
+            recentDoctors: state.recentDoctors),
       );
     }
+  }
+
+  Future<void> addRecentDoctor(DoctorResponse doctor) async {
+    List<DoctorResponse> recentDrs = state.recentDoctors.toList();
+
+    if (recentDrs.where((element) => element.id == doctor.id).isEmpty) {
+      recentDrs.add(doctor);
+    }
+    try {
+      if (recentDrs.length > 10) {
+        recentDrs =
+            recentDrs.getRange(1, recentDrs.length).map((e) => e).toList();
+      }
+    } catch (e) {
+      logPrint("$e");
+    }
+
+    emit(DoctorState(
+        blocState: state.blocState,
+        doctors: state.doctors,
+        error: state.error,
+        recentDoctors: recentDrs));
+  }
+
+  @override
+  DoctorState? fromJson(Map<String, dynamic> json) {
+    return DoctorState.fromMap(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(DoctorState state) {
+    return state.toMap();
   }
   // Future<void> fetchDoctors() async {
   //   emit(FetchDoctorsLoading(doctors: state.doctors));

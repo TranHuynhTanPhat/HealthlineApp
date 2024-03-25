@@ -15,7 +15,11 @@ import 'package:healthline/utils/log_data.dart';
 import 'package:healthline/utils/translate.dart';
 
 class MedicalRecordScreen extends StatefulWidget {
-  const MedicalRecordScreen({super.key, required this.callback, required this.nextPage, required this.previousPage});
+  const MedicalRecordScreen(
+      {super.key,
+      required this.callback,
+      required this.nextPage,
+      required this.previousPage});
   final VoidCallback nextPage;
   final VoidCallback previousPage;
   final Function({
@@ -107,7 +111,7 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                               patientName: patientName,
                               patientRecords: patientRecordIds);
                           widget.nextPage();
-          
+
                           // context.read<ConsultationCubit>().updateRequest(
                           //     medicalRecord: medicalId,
                           //     patientName: patientName,
@@ -216,18 +220,21 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                                     element.folder != null &&
                                     element.folder != 'default')
                                 .toList();
-          
-                            Map<String, Map<String, dynamic>> fileByFolders = {};
+
+                            Map<String, Map<String, dynamic>> fileByFolders =
+                                {};
                             for (var element in folderRecords) {
                               if (fileByFolders.containsKey(element.folder)) {
                                 DateTime newDate =
                                     DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                                         .parse(element.updateAt!);
-                                DateTime oldDate =
-                                    fileByFolders[element.folder!]!['update_at'];
+                                DateTime oldDate = fileByFolders[
+                                    element.folder!]!['update_at'];
                                 fileByFolders[element.folder!]!['length'] += 1;
                                 fileByFolders[element.folder!]!['update_at'] =
-                                    newDate.isAfter(oldDate) ? newDate : oldDate;
+                                    newDate.isAfter(oldDate)
+                                        ? newDate
+                                        : oldDate;
                                 // fileByFolders[element.folder!]!.add(element);
                               } else if (element.folder != null &&
                                   element.folder != 'default') {
@@ -242,7 +249,7 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                                 });
                               }
                             }
-          
+
                             return Column(
                               children: [
                                 const Divider(
@@ -252,125 +259,125 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                                   translate(context, 'share_information'),
                                   style: Theme.of(context).textTheme.labelLarge,
                                 ),
-                                ...fileByFolders.entries
-                                    .map(
-                                      (mapEntry) => Column(
-                                        children: [
-                                          ListTile(
-                                            onTap: () {
-                                              addFileInFolder(
-                                                  folderRecords, mapEntry.key);
-                                              setState(() {});
-                                            },
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                dimensWidth(),
+                                ...fileByFolders.entries.map(
+                                  (mapEntry) => Column(
+                                    children: [
+                                      ListTile(
+                                        onTap: () {
+                                          addFileInFolder(
+                                              folderRecords, mapEntry.key);
+                                          setState(() {});
+                                        },
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            dimensWidth(),
+                                          ),
+                                        ),
+                                        dense: true,
+                                        visualDensity:
+                                            const VisualDensity(vertical: 0),
+                                        leading: checkFileInFolder(
+                                                folderRecords, mapEntry.key)
+                                            ? SizedBox(
+                                                height: 24,
+                                                width: 24,
+                                                child: Checkbox(
+                                                  side: const BorderSide(
+                                                      width: 1),
+                                                  value: checkFileInFolder(
+                                                      folderRecords,
+                                                      mapEntry.key),
+                                                  onChanged: (value) =>
+                                                      setState(
+                                                    () {
+                                                      addFileInFolder(
+                                                          folderRecords,
+                                                          mapEntry.key);
+                                                    },
+                                                  ),
+                                                ),
+                                              )
+                                            : FaIcon(
+                                                FontAwesomeIcons
+                                                    .solidFolderClosed,
+                                                color: colorDF9F1E,
+                                                size: dimensIcon(),
+                                              ),
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                mapEntry.key,
+                                                overflow: TextOverflow.ellipsis,
+                                                maxLines: 1,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelLarge,
                                               ),
                                             ),
-                                            dense: true,
-                                            visualDensity:
-                                                const VisualDensity(vertical: 0),
-                                            leading: checkFileInFolder(
-                                                    folderRecords, mapEntry.key)
-                                                ? SizedBox(
-                                                    height: 24,
-                                                    width: 24,
-                                                    child: Checkbox(
-                                                      side: const BorderSide(
-                                                          width: 1),
-                                                      value: checkFileInFolder(
-                                                          folderRecords,
-                                                          mapEntry.key),
-                                                      onChanged: (value) =>
-                                                          setState(
-                                                        () {
-                                                          addFileInFolder(
-                                                              folderRecords,
-                                                              mapEntry.key);
-                                                        },
-                                                      ),
-                                                    ),
-                                                  )
-                                                : FaIcon(
-                                                    FontAwesomeIcons
-                                                        .solidFolderClosed,
-                                                    color: colorDF9F1E,
-                                                    size: dimensIcon(),
-                                                  ),
-                                            title: Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    mapEntry.key,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    maxLines: 1,
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .labelLarge,
-                                                  ),
-                                                ),
-                                              ],
+                                          ],
+                                        ),
+                                        subtitle: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                formatFileDate(
+                                                    context,
+                                                    mapEntry
+                                                        .value['update_at']),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall
+                                                    ?.copyWith(
+                                                        color: black26,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                              ),
                                             ),
-                                            subtitle: Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    formatFileDate(
-                                                        context,
-                                                        mapEntry
-                                                            .value['update_at']),
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodySmall
-                                                        ?.copyWith(
-                                                            color: black26,
-                                                            fontWeight:
-                                                                FontWeight.bold),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${mapEntry.value['length']} ${translate(context, 'items')}',
-                                                  textAlign: TextAlign.right,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall
-                                                      ?.copyWith(
-                                                          color: black26,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                ),
-                                              ],
+                                            Text(
+                                              '${mapEntry.value['length']} ${translate(context, 'items')}',
+                                              textAlign: TextAlign.right,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall
+                                                  ?.copyWith(
+                                                      color: black26,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                             ),
-                                          ),
-                                          const Divider(),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    )
-                                    .toList(),
+                                      const Divider(),
+                                    ],
+                                  ),
+                                ),
                                 ...fileRecords.map(
                                   (e) {
                                     String fileName =
                                         e.record?.split('/').last ?? 'undefine';
                                     String type = fileName.split('.').last;
-                                    DateTime updateAt =
-                                        DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                            .parse(e.updateAt!);
-          
+                                    DateTime updateAt = DateFormat(
+                                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                                        .parse(e.updateAt!);
+
                                     return FileWidget(
                                       widget: patientRecordIds.contains(e.id)
                                           ? SizedBox(
                                               height: 24,
                                               width: 24,
                                               child: Checkbox(
-                                                side: const BorderSide(width: 1),
+                                                side:
+                                                    const BorderSide(width: 1),
                                                 value: patientRecordIds
                                                     .contains(e.id),
                                                 onChanged: (value) => setState(
                                                   () {
-                                                    patientRecordIds.removeWhere(
-                                                        (element) =>
-                                                            element == e.id);
+                                                    patientRecordIds
+                                                        .removeWhere(
+                                                            (element) =>
+                                                                element ==
+                                                                e.id);
                                                   },
                                                 ),
                                               ),
@@ -391,11 +398,15 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                                       },
                                       extension: type,
                                       title: fileName,
-                                      updateAt: formatFileDate(context, updateAt),
+                                      updateAt:
+                                          formatFileDate(context, updateAt),
                                       size: e.size,
                                     );
                                   },
                                 ).toList(),
+                                SizedBox(
+                                  height: dimensHeight() * 10,
+                                )
                                 // ListFolder(fileByFolders: fileByFolders),
                                 // ListFile(fileRecords: fileRecords),
                               ],
@@ -411,7 +422,8 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
                                     ),
                                   ),
                                   dense: true,
-                                  visualDensity: const VisualDensity(vertical: 0),
+                                  visualDensity:
+                                      const VisualDensity(vertical: 0),
                                   leading: ShimmerWidget.circular(
                                     height: dimensIcon(),
                                     width: dimensIcon(),

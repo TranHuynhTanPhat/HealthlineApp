@@ -2,28 +2,26 @@
 
 import 'package:cloudinary_flutter/cloudinary_context.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:healthline/bloc/cubits/cubit_doctor/doctor_cubit.dart';
 import 'package:healthline/data/api/models/responses/doctor_response.dart';
 import 'package:healthline/res/style.dart';
 import 'package:healthline/routes/app_pages.dart';
 import 'package:healthline/utils/log_data.dart';
 import 'package:healthline/utils/translate.dart';
 
-class DoctorCard extends StatefulWidget {
-  const DoctorCard({
+class RecentDoctorCard extends StatefulWidget {
+  const RecentDoctorCard({
     super.key,
     required this.doctor,
   });
   final DoctorResponse doctor;
 
   @override
-  State<DoctorCard> createState() => _DoctorCardState();
+  State<RecentDoctorCard> createState() => _DoctorCardState();
 }
 
-class _DoctorCardState extends State<DoctorCard> {
+class _DoctorCardState extends State<RecentDoctorCard> {
   var _image;
   @override
   void initState() {
@@ -51,15 +49,11 @@ class _DoctorCardState extends State<DoctorCard> {
     return InkWell(
       splashColor: transparent,
       highlightColor: transparent,
-      onTap: () {
-        Navigator.pushNamed(context, detailDoctorName,
-            arguments: widget.doctor.toJson());
-        context.read<DoctorCubit>().addRecentDoctor(widget.doctor);
-      },
+      onTap: () => Navigator.pushNamed(context, detailDoctorName,
+          arguments: widget.doctor.toJson()),
       child: Container(
-        width: dimensWidth() * 20,
-        height: dimensHeight() * 27,
-        margin: EdgeInsets.only(right: dimensWidth() * 2),
+        // width: dimensWidth() * 20,
+        // height: dimensHeight() * 40,
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.circular(dimensWidth() * 2),
@@ -75,7 +69,7 @@ class _DoctorCardState extends State<DoctorCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 6,
+              flex: 5,
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -97,10 +91,10 @@ class _DoctorCardState extends State<DoctorCard> {
               ),
             ),
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: dimensWidth(), horizontal: dimensWidth() * 2),
+                    vertical: dimensWidth(), horizontal: dimensWidth() * 1.5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

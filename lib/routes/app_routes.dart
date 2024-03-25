@@ -11,6 +11,8 @@ import 'package:healthline/screen/auth/forget_password/forgot_password_screen.da
 import 'package:healthline/screen/auth/login/login_screen.dart';
 import 'package:healthline/screen/auth/signup/signup_screen.dart';
 import 'package:healthline/screen/change_password/change_password_screen.dart';
+import 'package:healthline/screen/chat/components/chat_box_screen.dart';
+import 'package:healthline/screen/chat/components/chat_screen.dart';
 import 'package:healthline/screen/error/error_screen.dart';
 import 'package:healthline/screen/forum/edit_post_screen.dart';
 import 'package:healthline/screen/forum/forum_screen.dart';
@@ -79,7 +81,8 @@ class AppRoute {
 
   Route? onGeneralRoute(RouteSettings settings) {
     if (AppController.instance.authState == AuthState.DoctorAuthorized ||
-        AppController.instance.authState == AuthState.PatientAuthorized) {
+        AppController.instance.authState == AuthState.PatientAuthorized ||
+        AppController.instance.authState == AuthState.Unauthorized) {
       switch (settings.name) {
         case forumName:
           return MaterialPageRoute(
@@ -88,15 +91,7 @@ class AppRoute {
               child: const ForumScreen(),
             ),
           );
-        case editPostName:
-          final args = settings.arguments as String?;
 
-          return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-              value: _forumCubit,
-              child: EditPostScreen(args: args),
-            ),
-          );
         case newsName:
           return MaterialPageRoute(
             builder: (_) => BlocProvider.value(
@@ -120,6 +115,28 @@ class AppRoute {
         case privacyPolicyName:
           return MaterialPageRoute(
             builder: (_) => const PrivacyPolicyScreen(),
+          );
+        case chatName:
+          return MaterialPageRoute(
+            builder: (_) => const ChatScreen(),
+          );
+        case chatBoxName:
+          return MaterialPageRoute(
+            builder: (_) => const ChatBoxScreen(),
+          );
+      }
+    }
+    if (AppController.instance.authState == AuthState.DoctorAuthorized ||
+        AppController.instance.authState == AuthState.PatientAuthorized) {
+      switch (settings.name) {
+        case editPostName:
+          final args = settings.arguments as String?;
+
+          return MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+              value: _forumCubit,
+              child: EditPostScreen(args: args),
+            ),
           );
         case bugReportName:
           return MaterialPageRoute(
@@ -163,6 +180,10 @@ class AppRoute {
               ),
             ),
           );
+        case updateName:
+          return MaterialPageRoute(
+            builder: (_) => const UpdateScreen(),
+          );
       }
     }
     if (AppController.instance.authState == AuthState.Unauthorized) {
@@ -187,8 +208,8 @@ class AppRoute {
             ),
           );
 
-        // default:
-        case logInName:
+        default:
+          // case logInName:
           return MaterialPageRoute(
             builder: (_) => BlocProvider.value(
               value: _authenticationCubit,
@@ -295,8 +316,15 @@ class AppRoute {
         case detailDoctorName:
           final args = settings.arguments as String?;
           return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-              value: _consultationCubit,
+            builder: (_) => MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                  value: _consultationCubit,
+                ),
+                BlocProvider.value(
+                  value: _doctorCubit,
+                ),
+              ],
               child: DetailDoctorScreen(
                 args: args,
               ),
@@ -320,10 +348,7 @@ class AppRoute {
               child: const ContactScreen(),
             ),
           );
-        case updateName:
-          return MaterialPageRoute(
-            builder: (_) => const UpdateScreen(),
-          );
+
         case vaccinationName:
           return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(

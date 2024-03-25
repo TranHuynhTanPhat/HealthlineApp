@@ -34,7 +34,7 @@ class UserService extends BaseService {
     var jsonRequest = json.encode({
       "email": email,
     });
-    final response = await patch(ApiConstants.USER, data: jsonRequest);
+    final response = await patch(ApiConstants.USER_EMAIL, data: jsonRequest);
     return response;
   }
 
@@ -56,7 +56,7 @@ class UserService extends BaseService {
     final response = await patch(
       ApiConstants.USER_PASSWORD,
       data: json.encode(
-        {"password": password, "newPassword": newPassword},
+        {"password": password, "new_password": newPassword},
       ),
     );
 

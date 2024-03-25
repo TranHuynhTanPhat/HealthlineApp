@@ -13,7 +13,10 @@ class FilePickerCustom {
     // In Android we need to request the storage permission,
     // while in iOS is the photos permission
     if (Platform.isAndroid) {
-      return Permission.storage.isGranted;
+      bool grand1 = await Permission.storage.isGranted;
+      bool grand2 = await Permission.mediaLibrary.isGranted;
+      return grand1 ||
+          grand2;
     } else {
       return Permission.photos.isGranted;
     }
@@ -93,6 +96,9 @@ class FilePickerCustom {
     if (result != null) {
       if (allowMultiple) {
         List<File> files = result.paths.map((path) => File(path!)).toList();
+        while (files.length > 5) {
+          files.removeLast();
+        }
         return files;
       }
       final file = File(result.files.single.path!);
@@ -107,9 +113,9 @@ class FilePickerCustom {
         allowedExtensions: [
           'doc',
           'docx',
-          'xls',
-          'xlsx',
-          'csv',
+          // 'xls',
+          // 'xlsx',
+          // 'csv',
           'pdf',
           'gif',
           'jpeg',
@@ -126,9 +132,9 @@ class FilePickerCustom {
           'mpeg',
           'mpg',
           'mpg4',
-          'pps',
-          'ppt',
-          'pptx'
+          // 'pps',
+          // 'ppt',
+          // 'pptx'
         ],
         allowMultiple: false);
 
@@ -137,5 +143,4 @@ class FilePickerCustom {
     }
     return null;
   }
-  
 }

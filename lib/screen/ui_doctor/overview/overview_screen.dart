@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloudinary_flutter/cloudinary_context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthline/bloc/cubits/cubit_consultation/consultation_cubit.dart';
 import 'package:healthline/data/api/models/responses/doctor_dasboard_response.dart';
 import 'package:healthline/res/style.dart';
@@ -41,6 +43,18 @@ class _OverviewScreenState extends State<OverviewScreen> {
           setState(() {
             dashboard = state.dashboard;
           });
+        } else if (state is CancelConsultationState ||
+            state is ConfirmConsultationState ||
+            state is DenyConsultationState) {
+          if (state.blocState == BlocState.Pending) {
+            EasyLoading.show(maskType: EasyLoadingMaskType.black);
+          } else if (state.blocState == BlocState.Failed) {
+            EasyLoading.showToast(translate(context, state.error));
+          } else {
+            EasyLoading.showToast(translate(context, 'successfully'));
+            context.read<ConsultationCubit>().fetchConsultation();
+            Navigator.pop(context);
+          }
         }
       },
       child: BlocBuilder<ConsultationCubit, ConsultationState>(
@@ -72,7 +86,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                       items: [
                         RevenueCard(money: dashboard!.money!),
                         AppointmentCard(countConsul: dashboard!.countConsul!),
-                        // ReportCard(),
+                        ReportCard(badFeedback: dashboard!.badFeedback!),
                       ],
                       options: CarouselOptions(
                           autoPlay: true,
@@ -144,7 +158,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                           // String? expectedTime;
                           // try {
                           //   expectedTime =
-                          '${convertIntToTime(time.first - 1)} - ${convertIntToTime(time.last)}';
+                          '${convertIntToTime(time.first)} - ${convertIntToTime(time.last + 1)}';
                           // } catch (e) {
                           //   logPrint(e);
                           // }
@@ -200,7 +214,43 @@ class _OverviewScreenState extends State<OverviewScreen> {
                             ),
                           );
                         }).toList()),
-                  ),
+                  )
+                else
+                  Container(
+                    margin: EdgeInsets.only(top: dimensHeight() * 10),
+                    alignment: Alignment.center,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                translate(context, 'empty'),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(
+                                        color: color1F1F1F.withOpacity(.05),
+                                        fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // SizedBox(
+                        //   height: dimensHeight() * 3,
+                        // ),
+                        FaIcon(
+                          FontAwesomeIcons.boxOpen,
+                          color: color1F1F1F.withOpacity(.05),
+                          size: dimensWidth() * 30,
+                        ),
+                      ],
+                    ),
+                  )
                 // Padding(
                 //   padding: EdgeInsets.symmetric(
                 //       horizontal: dimensWidth() * 3,

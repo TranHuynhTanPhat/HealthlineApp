@@ -57,9 +57,8 @@ class _DoctorCardState extends State<DoctorCard> {
         context.read<DoctorCubit>().addRecentDoctor(widget.doctor);
       },
       child: Container(
-        width: dimensWidth() * 20,
-        height: dimensHeight() * 27,
-        margin: EdgeInsets.only(right: dimensWidth() * 2),
+        // width: dimensWidth() * 20,
+        // height: dimensHeight() * 40,
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.circular(dimensWidth() * 2),
@@ -75,7 +74,7 @@ class _DoctorCardState extends State<DoctorCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 6,
+              flex: 5,
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -97,10 +96,10 @@ class _DoctorCardState extends State<DoctorCard> {
               ),
             ),
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: dimensWidth(), horizontal: dimensWidth() * 2),
+                    vertical: dimensWidth(), horizontal: dimensWidth() * 1.5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -230,17 +230,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                 .titleLarge
                                 ?.copyWith(color: color1F1F1F),
                           ),
-                          InkWell(
-                            child: Text(
-                              translate(context, 'see_all'),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                      color: primary,
-                                      fontWeight: FontWeight.bold),
-                            ),
-                          ),
+                          // InkWell(
+                          //   child: Text(
+                          //     translate(context, 'see_all'),
+                          //     style: Theme.of(context)
+                          //         .textTheme
+                          //         .bodyMedium
+                          //         ?.copyWith(
+                          //             color: primary,
+                          //             fontWeight: FontWeight.bold),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -309,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 } else if (state.blocState == BlocState.Successed) {
                   return SizedBox(
-                    height: dimensHeight()*30,
+                    height: dimensHeight() * 30,
                     child: ListView(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -319,13 +319,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           horizontal: dimensWidth() * 3,
                           vertical: dimensWidth() * 2),
                       children: [
-                        ...state.doctors.getRange(0, 10)
-                            .map(
+                        ...state.doctors.getRange(0, 15).map(
                               (e) => DoctorCard(
                                 doctor: e,
                               ),
-                            )
-                            .toList(),
+                            ),
                       ],
                     ),
                   );
@@ -344,6 +342,85 @@ class _HomeScreenState extends State<HomeScreen> {
                   //         .toList(),
                   //   ]),
                   // );
+                } else {
+                  return const SizedBox();
+                }
+              },
+            ),
+            BlocBuilder<DoctorCubit, DoctorState>(
+              builder: (context, state) {
+                if (state.recentDoctors.isNotEmpty) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: dimensHeight() * 4,
+                            left: dimensWidth() * 3,
+                            right: dimensWidth() * 3),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              translate(context, 'recently'),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(color: color1F1F1F),
+                            ),
+                            // InkWell(
+                            //   onTap: () =>
+                            //       Navigator.pushNamed(context, doctorName),
+                            //   child: Text(
+                            //     translate(context, 'see_all'),
+                            //     style: Theme.of(context)
+                            //         .textTheme
+                            //         .bodyMedium
+                            //         ?.copyWith(
+                            //           color: primary,
+                            //           fontWeight: FontWeight.bold,
+                            //         ),
+                            //   ),
+                            // ),
+                          ],
+                        ),
+                      ),
+                      // SizedBox(
+                      //   height: dimensHeight() * 30,
+                      //   child: ListView(
+                      //     shrinkWrap: true,
+                      //     scrollDirection: Axis.horizontal,
+                      //     // reverse: true,
+                      //     physics: const AlwaysScrollableScrollPhysics(),
+                      //     padding: EdgeInsets.symmetric(
+                      //         horizontal: dimensWidth() * 3,
+                      //         vertical: dimensWidth() * 2),
+                      //     children: [
+                      //       ...state.recentDoctors.map(
+                      //         (e) => DoctorCard(
+                      //           doctor: e,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: dimensWidth() * 2,
+                            horizontal: dimensWidth() * 3),
+                        child: BaseGridview(radio: 0.8, reserve: true, children: [
+                          ...state.recentDoctors
+                              .map(
+                                (e) => RecentDoctorCard(
+                                  doctor: e,
+                                ),
+                              )
+                              ,
+                        ]),
+                      )
+                    ],
+                  );
                 } else {
                   return const SizedBox();
                 }
