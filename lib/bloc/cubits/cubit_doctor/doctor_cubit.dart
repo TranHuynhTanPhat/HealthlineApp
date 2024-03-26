@@ -1,7 +1,9 @@
 // ignore: depend_on_referenced_packages
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
+import 'package:healthline/repositories/user_repository.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:meilisearch/meilisearch.dart';
 
@@ -18,9 +20,11 @@ class DoctorCubit extends HydratedCubit<DoctorState> {
           const DoctorState(
             doctors: [],
             blocState: BlocState.Successed,
+            pageKey: 0,
           ),
         );
   final MeiliSearchManager meiliSearchManager = MeiliSearchManager.instance;
+  final UserRepository _userRepository = UserRepository();
 
   Future<void> searchDoctor(
       {required String key,
@@ -28,7 +32,7 @@ class DoctorCubit extends HydratedCubit<DoctorState> {
       required int pageKey,
       required Function(List<DoctorResponse>) callback}) async {
     emit(
-      SearchDoctorState(
+      DoctorState(
           doctors: state.doctors,
           blocState: BlocState.Pending,
           pageKey: pageKey,
@@ -49,7 +53,7 @@ class DoctorCubit extends HydratedCubit<DoctorState> {
       // );
       callback(doctors);
       emit(
-        SearchDoctorState(
+        DoctorState(
             doctors: doctors,
             blocState: BlocState.Successed,
             pageKey: pageKey,
@@ -58,7 +62,7 @@ class DoctorCubit extends HydratedCubit<DoctorState> {
     } catch (error) {
       logPrint(error);
       emit(
-        SearchDoctorState(
+        DoctorState(
             error: error.toString(),
             doctors: state.doctors,
             blocState: BlocState.Failed,
@@ -87,7 +91,43 @@ class DoctorCubit extends HydratedCubit<DoctorState> {
         blocState: state.blocState,
         doctors: state.doctors,
         error: state.error,
-        recentDoctors: recentDrs));
+        recentDoctors: recentDrs,
+        pageKey: state.pageKey));
+  }
+
+  Future<void> addWishList({required String doctorId}) async {
+    emit(DoctorState(
+        doctors: state.doctors,
+        blocState: BlocState.Pending,
+        recentDoctors: state.recentDoctors,
+        pageKey: state.pageKey));
+    try {
+      await _userRepository.addWishList(doctorId: doctorId);
+      emit(DoctorState(
+          doctors: state.doctors,
+          blocState: BlocState.Successed,
+          recentDoctors: state.recentDoctors,
+          pageKey: state.pageKey));
+    } on DioException catch (e) {
+      // DioException er = e as DioException;
+      emit(
+        DoctorState(
+            doctors: state.doctors,
+            blocState: BlocState.Failed,
+            error: e.response!.data['message'].toString(),
+            recentDoctors: state.recentDoctors,
+            pageKey: state.pageKey),
+      );
+    } catch (e) {
+      emit(
+        DoctorState(
+            doctors: state.doctors,
+            blocState: BlocState.Failed,
+            error: e.toString(),
+            recentDoctors: state.recentDoctors,
+            pageKey: state.pageKey),
+      );
+    }
   }
 
   @override

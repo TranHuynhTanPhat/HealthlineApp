@@ -14,6 +14,7 @@ class UserResponse {
   String? phone;
   String? email;
   int? accountBalance;
+  int? point;
   UserResponse({
     this.id,
     this.fullName,
@@ -26,6 +27,7 @@ class UserResponse {
     this.phone,
     this.email,
     this.accountBalance,
+    this.point,
   });
 
   Map<String, dynamic> toMap() {
@@ -64,26 +66,30 @@ class UserResponse {
     if (accountBalance != null) {
       result.addAll({'account_balance': accountBalance});
     }
+    if (point != null) {
+      result.addAll({'point': point});
+    }
 
     return result;
   }
 
   factory UserResponse.fromMap(Map<String, dynamic> map) {
     return UserResponse(
-      id: map['id'],
-      fullName: map['full_name'],
-      dateOfBirth: map['date_of_birth'],
-      gender: map['gender'],
-      relationship: map['relationship'] != null
-          ? Relationship.values.firstWhere((e) => e.name == map['relationship'])
-          : null,
-      avatar: map['avatar'],
-      address: map['address'],
-      isMainProfile: map['isMainProfile'],
-      email: map['email'],
-      phone: map['phone'],
-      accountBalance: map['account_balance'],
-    );
+        id: map['id'],
+        fullName: map['full_name'],
+        dateOfBirth: map['date_of_birth'],
+        gender: map['gender'],
+        relationship: map['relationship'] != null
+            ? Relationship.values
+                .firstWhere((e) => e.name == map['relationship'])
+            : null,
+        avatar: map['avatar'],
+        address: map['address'],
+        isMainProfile: map['isMainProfile'],
+        email: map['email'],
+        phone: map['phone'],
+        accountBalance: map['account_balance'],
+        point: map['point']);
   }
 
   String toJson() => json.encode(toMap());
@@ -103,6 +109,7 @@ class UserResponse {
     String? phone,
     String? email,
     int? accountBalance,
+    int? point,
   }) {
     return UserResponse(
       id: id ?? this.id,
@@ -116,6 +123,7 @@ class UserResponse {
       phone: phone ?? this.phone,
       email: email ?? this.email,
       accountBalance: accountBalance ?? this.accountBalance,
+      point: point ?? this.point,
     );
   }
 }

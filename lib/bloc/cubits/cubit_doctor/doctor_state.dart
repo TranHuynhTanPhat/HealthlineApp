@@ -4,36 +4,40 @@ class DoctorState {
   const DoctorState({
     required this.doctors,
     required this.blocState,
-    this.recentDoctors=const <DoctorResponse>[],
+    this.recentDoctors = const <DoctorResponse>[],
     this.error,
+    required this.pageKey,
   });
   final List<DoctorResponse> doctors;
   final List<DoctorResponse> recentDoctors;
   final BlocState blocState;
   final String? error;
+  final int pageKey;
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
-  
+
     // result.addAll({'doctors': doctors.map((x) => x.toMap()).toList()});
-    result.addAll({'recentDoctors': recentDoctors.map((x) => x.toMap()).toList()});
+    result.addAll(
+        {'recentDoctors': recentDoctors.map((x) => x.toMap()).toList()});
     // result.addAll({'blocState': blocState.toMap()});
     // if(error != null){
     //   result.addAll({'error': error});
     // }
-  
+
     return result;
   }
 
   factory DoctorState.fromMap(Map<String, dynamic> map) {
     return DoctorState(
       doctors: [],
-      recentDoctors: List<DoctorResponse>.from(map['recentDoctors']?.map((x) => DoctorResponse.fromMap(x))),
+      recentDoctors: List<DoctorResponse>.from(
+          map['recentDoctors']?.map((x) => DoctorResponse.fromMap(x))),
       blocState: BlocState.Successed,
       error: null,
+      pageKey: 0,
     );
   }
-
 }
 
 // final class DoctorInitial extends DoctorState {
@@ -43,12 +47,12 @@ class DoctorState {
 //       super.error,});
 // }
 
-final class SearchDoctorState extends DoctorState {
-  SearchDoctorState(
-      {required super.doctors,
-      required super.blocState,
-      required this.pageKey,
-      super.recentDoctors,
-      super.error,});
-  int pageKey;
-}
+// final class SearchDoctorState extends DoctorState {
+//   SearchDoctorState(
+//       {required super.doctors,
+//       required super.blocState,
+//       required this.pageKey,
+//       super.recentDoctors,
+//       super.error,});
+//   int pageKey;
+// }

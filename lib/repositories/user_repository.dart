@@ -103,4 +103,8 @@ class UserRepository extends BaseRepository {
         password: password,
         confirmPassword: confirmPassword);
   }
+
+  Future<int?> addWishList({required String doctorId}) async {
+    return await _userService.addWishList(doctorid: doctorId);
+  }
 }

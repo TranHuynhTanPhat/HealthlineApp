@@ -867,6 +867,10 @@
         "vi": "Thẻ dịch vụ",
         "en": "Service card"
     },
+    "reward_points:": {
+        "vi": "Điểm thưởng",
+        "en": "Reward points:"
+    },
     "transfer_money_through_banks": {
         "vi": "Chuyển tiền qua ngân hàng",
         "en": "Transfer money through banks"
@@ -1694,5 +1698,9 @@
     "email_has_been_registered": {
         "vi": "Email đã được đăng ký",
         "en": "Email has been registered"
+    },
+    "cant_be_done": {
+        "vi": "Không thể hoàn thành",
+        "en": "Can't be done"
     }
 }

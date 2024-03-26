@@ -248,9 +248,18 @@ class _DetailDoctorScreenState extends State<DetailDoctorScreen> {
                     padding: EdgeInsets.only(right: dimensWidth() * 3),
                     child: InkWell(
                       onTap: () {
-                        setState(() {
-                          marked = !marked;
-                        });
+                        print(doctor.id);
+                        if (doctor.id == null) {
+                          EasyLoading.showToast(
+                              translate(context, 'cant_be_done'));
+                        } else {
+                          context
+                              .read<DoctorCubit>()
+                              .addWishList(doctorId: doctor.id!);
+                          // setState(() {
+                          //   marked = !marked;
+                          // });
+                        }
                       },
                       child: FaIcon(
                         marked
